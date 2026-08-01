@@ -1,0 +1,60 @@
+/* ============================================================
+   EduMart – Rating Component Styles
+   ============================================================ */
+
+@use '../../styles/variables' as *;
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.starFilled {
+  color: #fbbf24;
+}
+
+.starEmpty {
+  color: #{$gray-300};
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ratingValue {
+  font-weight: $font-weight-semibold;
+  color: var(--text-primary);
+}
+
+.reviewCount {
+  color: var(--text-muted);
+  font-weight: $font-weight-normal;
+}
+
+// Size variants
+.size-sm {
+  .stars svg { font-size: 0.75rem; }
+  .ratingValue { font-size: $font-size-xs; }
+  .reviewCount { font-size: $font-size-xs; }
+}
+
+.size-md {
+  .stars svg { font-size: 0.875rem; }
+  .ratingValue { font-size: $font-size-sm; }
+  .reviewCount { font-size: $font-size-xs; }
+}
+
+.size-lg {
+  .stars svg { font-size: 1.1rem; }
+  .ratingValue { font-size: $font-size-base; }
+  .reviewCount { font-size: $font-size-sm; }
+}

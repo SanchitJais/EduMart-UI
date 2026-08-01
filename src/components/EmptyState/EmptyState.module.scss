@@ -1,0 +1,68 @@
+/* ============================================================
+   EduMart – EmptyState Styles
+   ============================================================ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.emptyState {
+  @include flex-center;
+  flex-direction: column;
+  text-align: center;
+  padding: $space-20 $space-4;
+  @include fade-in(0.4s);
+}
+
+.illustration {
+  width: 120px;
+  height: 120px;
+  background: var(--bg-secondary);
+  border-radius: 50%;
+  @include flex-center;
+  margin-bottom: $space-6;
+  animation: bounce 2s ease infinite;
+}
+
+.icon {
+  font-size: 3.5rem;
+}
+
+.title {
+  @include heading($font-size-2xl, $font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: $space-3;
+}
+
+.description {
+  color: var(--text-muted);
+  font-size: $font-size-base;
+  max-width: 380px;
+  margin-bottom: $space-8;
+  line-height: 1.6;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-3 $space-8;
+  background: linear-gradient(135deg, $primary, $primary-dark);
+  color: $white;
+  border-radius: $radius-full;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  transition: all $transition-normal;
+  box-shadow: $shadow-primary;
+
+  &:hover {
+    background: linear-gradient(135deg, $primary-dark, $secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+    color: $white;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

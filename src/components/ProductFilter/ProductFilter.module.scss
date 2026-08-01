@@ -1,0 +1,228 @@
+/* ProductFilter Styles */
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: $z-modal-backdrop;
+
+  @include respond-to('lg') {
+    display: block;
+  }
+}
+
+.sidebar {
+  background: var(--bg-card);
+  border-radius: $radius-xl;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  height: fit-content;
+  position: sticky;
+  top: calc(#{$navbar-height} + 1rem);
+
+  @include respond-to('lg') {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 300px;
+    height: 100vh;
+    border-radius: 0;
+    z-index: $z-modal;
+    overflow-y: auto;
+    transition: left $transition-normal;
+    @include custom-scrollbar;
+
+    &.open { left: 0; }
+  }
+}
+
+.header {
+  @include flex-between;
+  padding: $space-4 $space-5;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.title {
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.activeCount {
+  width: 20px;
+  height: 20px;
+  border-radius: $radius-full;
+  background: $primary;
+  color: $white;
+  font-size: 0.7rem;
+  font-weight: $font-weight-bold;
+  @include flex-center;
+}
+
+.resetBtn {
+  background: none;
+  border: none;
+  color: $danger;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  padding: $space-1 $space-2;
+  border-radius: $radius-md;
+  transition: background $transition-fast;
+
+  &:hover { background: rgba(239, 68, 68, 0.08); }
+}
+
+.closeBtn {
+  display: none;
+  width: 30px;
+  height: 30px;
+  border-radius: $radius-full;
+  border: none;
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  @include flex-center;
+  cursor: pointer;
+  font-size: 1rem;
+
+  @include respond-to('lg') { display: flex; }
+}
+
+// ── Sections ──────────────────────────────────────────────────
+.section {
+  padding: $space-4 $space-5;
+  border-bottom: 1px solid var(--border-color);
+
+  &:last-child { border-bottom: none; }
+}
+
+.sectionTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: var(--text-primary);
+  margin-bottom: $space-3;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// Select
+.select {
+  width: 100%;
+  padding: $space-2 $space-3;
+  border: 1.5px solid var(--border-color);
+  border-radius: $radius-lg;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: $font-size-sm;
+  outline: none;
+  cursor: pointer;
+  transition: border-color $transition-fast;
+
+  &:focus { border-color: $primary; }
+}
+
+// Radio Items
+.categoryList, .ratingList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  max-height: 240px;
+  overflow-y: auto;
+  @include custom-scrollbar;
+}
+
+.radioItem, .checkItem {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: $space-1 0;
+  transition: color $transition-fast;
+
+  input[type="radio"], input[type="checkbox"] {
+    accent-color: $primary;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  &:hover { color: $primary; }
+}
+
+// Price Inputs
+.priceInputs {
+  display: flex;
+  align-items: flex-end;
+  gap: $space-2;
+  margin-bottom: $space-3;
+}
+
+.priceInput {
+  @include flex-col;
+  gap: $space-1;
+  flex: 1;
+
+  label {
+    font-size: $font-size-xs;
+    color: var(--text-muted);
+    font-weight: $font-weight-medium;
+  }
+}
+
+.numberInput {
+  width: 100%;
+  padding: $space-2 $space-3;
+  border: 1.5px solid var(--border-color);
+  border-radius: $radius-md;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: $font-size-sm;
+  outline: none;
+
+  &:focus { border-color: $primary; }
+}
+
+.priceDash {
+  color: var(--text-muted);
+  padding-bottom: $space-2;
+  font-weight: $font-weight-bold;
+}
+
+.rangeSlider {
+  width: 100%;
+  accent-color: $primary;
+  cursor: pointer;
+}
+
+.rangeLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+  margin-top: $space-1;
+}

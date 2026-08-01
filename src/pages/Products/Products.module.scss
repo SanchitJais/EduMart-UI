@@ -1,0 +1,110 @@
+/* Products Page Styles */
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  background: var(--bg-secondary);
+  min-height: 100vh;
+  padding: $space-6 0 $space-16;
+  @include fade-in(0.3s);
+}
+
+.pageHeader {
+  @include flex-between;
+  margin: $space-4 0 $space-6;
+  flex-wrap: wrap;
+  gap: $space-4;
+  align-items: flex-end;
+}
+
+.pageTitle {
+  @include heading($font-size-2xl, $font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 $space-1;
+  text-transform: capitalize;
+}
+
+.resultCount {
+  color: var(--text-muted);
+  font-size: $font-size-sm;
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.filterToggle {
+  display: none;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: $radius-full;
+  color: var(--text-secondary);
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  @include respond-to('lg') { display: flex; }
+
+  &:hover {
+    border-color: $primary;
+    color: $primary;
+  }
+}
+
+.viewToggle {
+  display: flex;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: $radius-lg;
+  overflow: hidden;
+}
+
+.viewBtn {
+  width: 38px;
+  height: 38px;
+  @include flex-center;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all $transition-fast;
+
+  &.activeView {
+    background: $primary;
+    color: $white;
+  }
+
+  &:not(.activeView):hover {
+    background: var(--bg-secondary);
+    color: $primary;
+  }
+}
+
+// ── 2-Column Layout ───────────────────────────────────────────
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: $space-6;
+  align-items: start;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.filterCol {
+  @include respond-to('lg') {
+    // Hidden on mobile — filter is a drawer
+    display: none;
+  }
+}
+
+.resultsCol { min-width: 0; }

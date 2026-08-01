@@ -1,0 +1,315 @@
+/* Home Page Styles */
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ── Section Backgrounds ───────────────────────────────────────
+.section { background: var(--bg-primary); }
+.sectionAlt { background: var(--bg-secondary); }
+
+.sectionHeader {
+  @include flex-between;
+  margin-bottom: $space-8;
+  flex-wrap: wrap;
+  gap: $space-4;
+  align-items: flex-end;
+}
+
+.sectionSub {
+  color: var(--text-muted);
+  font-size: $font-size-sm;
+  margin: $space-2 0 0;
+}
+
+.viewAllLink {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  color: $primary;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-sm;
+  text-decoration: none;
+  padding: $space-2 $space-4;
+  border: 1.5px solid $primary;
+  border-radius: $radius-full;
+  transition: all $transition-fast;
+  white-space: nowrap;
+
+  &:hover {
+    background: $primary;
+    color: $white;
+  }
+}
+
+// ── Features Bar ──────────────────────────────────────────────
+.features {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  padding: $space-6 0;
+  box-shadow: $shadow-sm;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-6;
+
+  @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
+  @include respond-to('sm') { grid-template-columns: 1fr; }
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-3;
+}
+
+.featureIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-xl;
+  background: rgba(0, 0, 0, 0.05);
+  background: color-mix(in srgb, var(--feat-color) 12%, transparent);
+  @include flex-center;
+  color: var(--feat-color, #{$primary});
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  border: 1px solid color-mix(in srgb, var(--feat-color) 25%, transparent);
+}
+
+.featureTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: var(--text-primary);
+  margin: 0 0 $space-1;
+}
+
+.featureDesc {
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+// ── Categories Grid ───────────────────────────────────────────
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: $space-4;
+
+  @media (max-width: 1100px) { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 800px) { grid-template-columns: repeat(3, 1fr); }
+  @include respond-to('sm') { grid-template-columns: repeat(2, 1fr); }
+}
+
+// ── Product Grids ─────────────────────────────────────────────
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-5;
+
+  @media (max-width: 1100px) { grid-template-columns: repeat(3, 1fr); }
+  @include respond-to('md') { grid-template-columns: repeat(2, 1fr); }
+  @include respond-to('sm') { grid-template-columns: 1fr; }
+}
+
+.productsGrid4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-5;
+
+  @media (max-width: 1100px) { grid-template-columns: repeat(3, 1fr); }
+  @include respond-to('md') { grid-template-columns: repeat(2, 1fr); }
+  @include respond-to('sm') { grid-template-columns: 1fr; }
+}
+
+// ── Promo Banner ──────────────────────────────────────────────
+.promoBanner {
+  background: linear-gradient(135deg, #ff6b35, #f72585, #7c3aed);
+  padding: $space-12 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.promoContent {
+  @include flex-between;
+  gap: $space-8;
+  align-items: center;
+
+  @include respond-to('md') {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.promoLeft { max-width: 600px; }
+
+.promoTag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: $white;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  padding: $space-1 $space-3;
+  border-radius: $radius-full;
+  margin-bottom: $space-3;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.promoTitle {
+  @include heading($font-size-3xl, $font-weight-extrabold);
+  color: $white;
+  margin-bottom: $space-3;
+
+  @include respond-to('md') { font-size: $font-size-2xl; }
+}
+
+.promoText {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: $font-size-base;
+  margin-bottom: $space-6;
+}
+
+.promoCta {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-3 $space-8;
+  background: $white;
+  color: #7c3aed;
+  border-radius: $radius-full;
+  font-weight: $font-weight-bold;
+  text-decoration: none;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $gray-100;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.promoEmoji {
+  font-size: 7rem;
+  opacity: 0.9;
+  animation: wiggle 3s ease infinite;
+
+  @include respond-to('md') { display: none; }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
+// ── Why Section ───────────────────────────────────────────────
+.whySection {
+  background: linear-gradient(135deg, $primary-50, rgba(239, 246, 255, 0.5));
+}
+
+.whyTitle { margin: 0 auto $space-3 !important; }
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-5;
+
+  @include respond-to('md') { grid-template-columns: repeat(2, 1fr); }
+  @include respond-to('sm') { grid-template-columns: 1fr; }
+}
+
+.whyCard {
+  background: var(--bg-card);
+  border-radius: $radius-xl;
+  padding: $space-6;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: all $transition-normal;
+  box-shadow: $shadow-sm;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-card-hover;
+    border-color: rgba(37, 99, 235, 0.2);
+  }
+}
+
+.whyEmoji { font-size: 2.5rem; display: block; margin-bottom: $space-3; }
+
+.whyCardTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: var(--text-primary);
+  margin-bottom: $space-2;
+}
+
+.whyCardDesc {
+  font-size: $font-size-sm;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+// ── Testimonials ──────────────────────────────────────────────
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-5;
+
+  @include respond-to('md') { grid-template-columns: 1fr; }
+}
+
+.testimonialCard {
+  background: var(--bg-card);
+  border-radius: $radius-xl;
+  padding: $space-6;
+  border: 1px solid var(--border-color);
+  box-shadow: $shadow-card;
+  transition: all $transition-normal;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+.stars {
+  font-size: 1rem;
+  margin-bottom: $space-3;
+}
+
+.testimonialText {
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: $space-4;
+  font-style: italic;
+}
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.authorAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid $primary-100;
+}
+
+.authorName {
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-sm;
+  color: var(--text-primary);
+}
+
+.authorRole {
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+}

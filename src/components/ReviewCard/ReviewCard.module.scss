@@ -1,0 +1,54 @@
+/* ReviewCard Styles */
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.card {
+  background: var(--bg-secondary);
+  border-radius: $radius-xl;
+  padding: $space-4 $space-5;
+  border: 1px solid var(--border-color);
+  @include slide-up(0.3s);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-3;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $primary, $secondary);
+  @include flex-center;
+  color: $white;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.meta {
+  @include flex-col;
+  flex: 1;
+}
+
+.user {
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-sm;
+  color: var(--text-primary);
+}
+
+.date {
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+}
+
+.ratingWrapper { margin-left: auto; }
+
+.comment {
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}

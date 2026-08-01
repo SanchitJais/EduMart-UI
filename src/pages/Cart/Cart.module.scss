@@ -1,0 +1,185 @@
+/* Cart Page Styles */
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  background: var(--bg-secondary);
+  min-height: 100vh;
+  padding: $space-6 0 $space-16;
+  @include fade-in(0.3s);
+}
+
+.pageHeader {
+  @include flex-between;
+  margin: $space-4 0 $space-6;
+  flex-wrap: wrap;
+  gap: $space-3;
+}
+
+.title {
+  @include heading($font-size-2xl, $font-weight-bold);
+  margin: 0 0 $space-1;
+}
+
+.count { color: var(--text-muted); font-size: $font-size-sm; margin: 0; }
+
+.clearBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  background: none;
+  border: 1.5px solid $danger;
+  color: $danger;
+  padding: $space-2 $space-4;
+  border-radius: $radius-full;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $danger;
+    color: $white;
+  }
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: $space-6;
+  align-items: start;
+
+  @include respond-to('lg') { grid-template-columns: 1fr; }
+}
+
+.itemsCol { @include flex-col; gap: $space-4; }
+
+.itemsList {
+  @include flex-col;
+  gap: $space-3;
+}
+
+.continueLink {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  color: $primary;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-sm;
+  text-decoration: none;
+  padding: $space-3 $space-5;
+  border: 1.5px solid $primary;
+  border-radius: $radius-full;
+  width: fit-content;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $primary;
+    color: $white;
+  }
+}
+
+// ── Summary Card ──────────────────────────────────────────────
+.summaryCol { position: sticky; top: calc(#{$navbar-height} + 1rem); }
+
+.summaryCard {
+  background: var(--bg-card);
+  border-radius: $radius-2xl;
+  border: 1px solid var(--border-color);
+  padding: $space-6;
+  box-shadow: var(--shadow-card);
+}
+
+.summaryTitle {
+  @include heading($font-size-lg, $font-weight-bold);
+  margin-bottom: $space-5;
+  padding-bottom: $space-4;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.summaryRows {
+  @include flex-col;
+  gap: $space-3;
+  margin-bottom: $space-4;
+}
+
+.summaryRow {
+  @include flex-between;
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+
+  span:last-child { font-weight: $font-weight-semibold; }
+}
+
+.free { color: $success !important; }
+
+.shippingNote {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: $radius-lg;
+  padding: $space-3;
+  font-size: $font-size-xs;
+  color: $success;
+  font-weight: $font-weight-medium;
+  margin-bottom: $space-4;
+  text-align: center;
+}
+
+.totalRow {
+  @include flex-between;
+  padding: $space-4 0;
+  border-top: 2px solid var(--border-color);
+  margin-bottom: $space-5;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+}
+
+.totalAmount {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-extrabold;
+  color: $primary;
+}
+
+.checkoutBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  width: 100%;
+  padding: $space-4;
+  background: linear-gradient(135deg, $primary, $primary-dark);
+  color: $white;
+  border-radius: $radius-xl;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+  text-decoration: none;
+  transition: all $transition-normal;
+  box-shadow: $shadow-primary;
+  margin-bottom: $space-4;
+
+  &:hover {
+    background: linear-gradient(135deg, $primary-dark, $secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+    color: $white;
+  }
+}
+
+.paymentIcons {
+  display: flex;
+  justify-content: center;
+  gap: $space-4;
+  margin-bottom: $space-3;
+}
+
+.payIcon {
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+}
+
+.secureNote {
+  text-align: center;
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+  margin: 0;
+}

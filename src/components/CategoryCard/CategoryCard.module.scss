@@ -1,0 +1,66 @@
+/* ============================================================
+   EduMart – CategoryCard Styles
+   ============================================================ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $space-6 $space-4;
+  background: var(--cat-bg, #{$primary-50});
+  border: 1.5px solid transparent;
+  border-radius: $radius-2xl;
+  text-decoration: none;
+  transition: all $transition-normal;
+  cursor: pointer;
+  text-align: center;
+  gap: $space-2;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: var(--cat-color, #{$primary});
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: var(--bg-card);
+
+    .iconWrapper {
+      background: var(--cat-color, #{$primary});
+      transform: scale(1.1) rotate(-5deg);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .icon { filter: brightness(10); }
+  }
+}
+
+.iconWrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: $radius-xl;
+  background: var(--bg-card);
+  @include flex-center;
+  transition: all $transition-normal;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.icon {
+  font-size: 2rem;
+  transition: filter $transition-normal;
+}
+
+.name {
+  font-family: $font-family-heading;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: var(--cat-color, #{$primary});
+  margin: 0;
+  line-height: 1.3;
+}
+
+.count {
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+  margin: 0;
+}

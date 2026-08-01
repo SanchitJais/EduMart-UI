@@ -1,0 +1,149 @@
+/* ============================================================
+   EduMart – WishlistCard Styles
+   ============================================================ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.card {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: $radius-xl;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: all $transition-normal;
+  box-shadow: var(--shadow-card);
+
+  &:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+  }
+}
+
+.discountBadge {
+  position: absolute;
+  top: $space-3;
+  left: $space-3;
+  background: $danger;
+  color: $white;
+  font-size: 0.7rem;
+  font-weight: $font-weight-bold;
+  padding: 3px $space-2;
+  border-radius: $radius-full;
+  z-index: 2;
+}
+
+.removeBtn {
+  position: absolute;
+  top: $space-3;
+  right: $space-3;
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  border-radius: $radius-full;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border-color);
+  @include flex-center;
+  color: $gray-400;
+  cursor: pointer;
+  transition: all $transition-fast;
+  font-size: 0.9rem;
+
+  &:hover {
+    color: $danger;
+    border-color: $danger;
+  }
+}
+
+.imageLink { display: block; }
+
+.image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: transform $transition-slow;
+
+  &:hover { transform: scale(1.04); }
+}
+
+.body {
+  padding: $space-4;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.category {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $primary;
+  background: $primary-50;
+  padding: 2px $space-2;
+  border-radius: $radius-full;
+  display: inline-block;
+  text-transform: capitalize;
+  width: fit-content;
+}
+
+.titleLink { text-decoration: none; }
+
+.title {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: var(--text-primary);
+  @include text-truncate(2);
+  margin: 0;
+  transition: color $transition-fast;
+
+  &:hover { color: $primary; }
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: $space-2;
+}
+
+.price {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $primary;
+}
+
+.originalPrice {
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.moveToCart {
+  width: 100%;
+  padding: $space-3;
+  background: linear-gradient(135deg, $primary, $primary-dark);
+  color: $white;
+  border: none;
+  border-radius: $radius-lg;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  transition: all $transition-fast;
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, $primary-dark, $secondary);
+    transform: translateY(-1px);
+  }
+
+  &.inCart {
+    background: linear-gradient(135deg, $success, #0d9b6d);
+  }
+
+  &:disabled {
+    background: $gray-200;
+    color: $gray-400;
+    cursor: not-allowed;
+  }
+}

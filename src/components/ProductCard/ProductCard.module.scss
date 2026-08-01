@@ -1,0 +1,446 @@
+/* ============================================================
+   EduMart – ProductCard Styles
+   ============================================================ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ── Grid Card ─────────────────────────────────────────────────
+.card {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: $radius-xl;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: all $transition-normal;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+
+  &:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-5px);
+    border-color: rgba(37, 99, 235, 0.2);
+
+    .overlay { opacity: 1; }
+    .image { transform: scale(1.05); }
+  }
+}
+
+// ── Badges ───────────────────────────────────────────────────
+.badges {
+  position: absolute;
+  top: $space-3;
+  left: $space-3;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.badge {
+  padding: 3px $space-2;
+  border-radius: $radius-full;
+  font-size: 0.65rem;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.bestSeller { background: $accent; color: $white; }
+.newArrival { background: $success; color: $white; }
+.trending { background: $danger; color: $white; }
+
+// ── Wishlist Button ───────────────────────────────────────────
+.wishlistBtn {
+  position: absolute;
+  top: $space-3;
+  right: $space-3;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-full;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border-color);
+  @include flex-center;
+  color: $gray-400;
+  cursor: pointer;
+  transition: all $transition-fast;
+  box-shadow: $shadow-sm;
+  font-size: 1rem;
+
+  &:hover, &.wishlisted {
+    color: $danger;
+    border-color: $danger;
+    transform: scale(1.1);
+    background: rgba(239, 68, 68, 0.05);
+  }
+
+  .wishlisted & { color: $danger; }
+}
+
+.wishlisted {
+  color: $danger !important;
+  background: rgba(239, 68, 68, 0.05) !important;
+  border-color: $danger !important;
+}
+
+// ── Image ─────────────────────────────────────────────────────
+.imageLink { display: block; text-decoration: none; }
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: $gray-50;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform $transition-slow;
+}
+
+.discountBadge {
+  position: absolute;
+  bottom: $space-2;
+  left: $space-2;
+  background: $danger;
+  color: $white;
+  font-size: 0.7rem;
+  font-weight: $font-weight-bold;
+  padding: 2px $space-2;
+  border-radius: $radius-full;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(37, 99, 235, 0.7);
+  @include flex-center;
+  opacity: 0;
+  transition: opacity $transition-normal;
+  cursor: pointer;
+}
+
+.quickView {
+  color: $white;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-sm;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  border: 2px solid $white;
+  border-radius: $radius-full;
+}
+
+// ── Card Body ─────────────────────────────────────────────────
+.body {
+  padding: $space-4;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: $space-2;
+}
+
+.category {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  text-transform: capitalize;
+  color: $primary;
+  background: $primary-50;
+  padding: 2px $space-2;
+  border-radius: $radius-full;
+  display: inline-block;
+  width: fit-content;
+}
+
+.titleLink { text-decoration: none; }
+
+.title {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: var(--text-primary);
+  @include text-truncate(2);
+  line-height: 1.4;
+  margin: 0;
+  transition: color $transition-fast;
+
+  &:hover { color: $primary; }
+}
+
+.brand {
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+}
+
+.ratingRow { margin-top: auto; }
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: $space-2;
+  flex-wrap: wrap;
+}
+
+.currentPrice {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $primary;
+}
+
+.originalPrice {
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.saveBadge {
+  font-size: $font-size-xs;
+  color: $success;
+  font-weight: $font-weight-semibold;
+}
+
+.lowStock {
+  font-size: $font-size-xs;
+  color: $warning;
+  font-weight: $font-weight-medium;
+  margin: 0;
+  animation: pulse 2s infinite;
+}
+
+.outOfStock {
+  font-size: $font-size-xs;
+  color: $danger;
+  font-weight: $font-weight-medium;
+  margin: 0;
+}
+
+// ── Add to Cart Button ────────────────────────────────────────
+.addToCart {
+  width: 100%;
+  padding: $space-3;
+  background: linear-gradient(135deg, $primary, $primary-dark);
+  color: $white;
+  border: none;
+  border-radius: $radius-lg;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  transition: all $transition-normal;
+  margin-top: $space-2;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25);
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, $primary-dark, $secondary);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+  }
+
+  &:disabled {
+    background: $gray-200;
+    color: $gray-400;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  &.inCart {
+    background: linear-gradient(135deg, $success, #0d9b6d);
+  }
+}
+
+// ── List Card ─────────────────────────────────────────────────
+.listCard {
+  display: flex;
+  gap: $space-4;
+  background: var(--bg-card);
+  border-radius: $radius-xl;
+  border: 1px solid var(--border-color);
+  padding: $space-4;
+  transition: all $transition-normal;
+  box-shadow: var(--shadow-card);
+
+  &:hover {
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(37, 99, 235, 0.2);
+  }
+
+  @include respond-to('sm') {
+    flex-direction: column;
+  }
+}
+
+.listImageLink {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.listImage {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: $radius-lg;
+
+  @include respond-to('sm') {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+.listInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.categoryBadge {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $primary;
+  background: $primary-50;
+  padding: 2px $space-2;
+  border-radius: $radius-full;
+  display: inline-block;
+  margin-bottom: $space-2;
+  text-transform: capitalize;
+}
+
+.listTitle {
+  display: block;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: var(--text-primary);
+  text-decoration: none;
+  @include text-truncate(2);
+  margin-bottom: $space-2;
+
+  &:hover { color: $primary; }
+}
+
+.listDescription {
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+  @include text-truncate(2);
+  margin: 0;
+}
+
+.listMeta {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-top: $space-2;
+}
+
+.listPriceSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-shrink: 0;
+  min-width: 160px;
+
+  @include respond-to('sm') {
+    flex-direction: row;
+    align-items: center;
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+.priceBlock {
+  @include flex-col;
+  align-items: flex-end;
+  gap: $space-1;
+
+  @include respond-to('sm') {
+    align-items: flex-start;
+  }
+}
+
+.listActions {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  align-items: stretch;
+
+  @include respond-to('sm') {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.cartBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  background: linear-gradient(135deg, $primary, $primary-dark);
+  color: $white;
+  border: none;
+  border-radius: $radius-lg;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, $primary-dark, $secondary);
+  }
+
+  &.inCart { background: linear-gradient(135deg, $success, #0d9b6d); }
+}
+
+.wishlistBtnList {
+  width: 38px;
+  height: 38px;
+  border-radius: $radius-lg;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-card);
+  color: $gray-400;
+  @include flex-center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all $transition-fast;
+  flex-shrink: 0;
+
+  &:hover, &.wishlisted {
+    color: $danger;
+    border-color: $danger;
+  }
+}
+
+.viewBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: $radius-lg;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-card);
+  color: $gray-400;
+  @include flex-center;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all $transition-fast;
+  flex-shrink: 0;
+
+  &:hover {
+    color: $primary;
+    border-color: $primary;
+    background: $primary-50;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}

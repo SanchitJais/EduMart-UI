@@ -1,0 +1,253 @@
+/* Login & Register shared auth styles */
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, $primary-50, $gray-50, rgba(124, 58, 237, 0.05));
+  @include flex-center;
+  padding: $space-8 $space-4;
+  @include fade-in(0.4s);
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 900px;
+  width: 100%;
+  background: var(--bg-card);
+  border-radius: $radius-2xl;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: $shadow-xl;
+
+  @include respond-to('md') { grid-template-columns: 1fr; }
+}
+
+// ── Left Panel ────────────────────────────────────────────────
+.leftPanel {
+  background: linear-gradient(135deg, #0a0f2e, #1a237e, #283593);
+  padding: $space-10;
+  @include flex-col;
+  justify-content: center;
+  gap: $space-4;
+
+  @include respond-to('md') { padding: $space-8; }
+}
+
+.brandLogo {
+  font-size: 3rem;
+  margin-bottom: $space-2;
+}
+
+.brandName {
+  font-family: $font-family-heading;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-extrabold;
+  color: $white;
+  margin: 0;
+}
+
+.brandTagline {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: $font-size-sm;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  margin-top: $space-4;
+}
+
+.featureItem {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: $font-size-sm;
+  padding: $space-2 $space-4;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: $radius-full;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: inline-block;
+  width: fit-content;
+}
+
+// ── Right Panel ───────────────────────────────────────────────
+.rightPanel {
+  padding: $space-10;
+  @include flex-col;
+  justify-content: center;
+
+  @include respond-to('md') { padding: $space-8; }
+}
+
+.formTitle {
+  @include heading($font-size-2xl, $font-weight-extrabold);
+  color: var(--text-primary);
+  margin-bottom: $space-1;
+}
+
+.formSubtitle {
+  color: var(--text-muted);
+  font-size: $font-size-sm;
+  margin-bottom: $space-5;
+}
+
+.demoBox {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: $radius-lg;
+  padding: $space-3 $space-4;
+  font-size: $font-size-xs;
+  color: $accent-dark;
+  margin-bottom: $space-5;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.demoBtn {
+  background: none;
+  border: none;
+  color: $primary;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.form {
+  @include flex-col;
+  gap: $space-4;
+}
+
+.formGroup { @include flex-col; gap: $space-2; }
+
+.labelRow {
+  @include flex-between;
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: var(--text-secondary);
+}
+
+.forgotLink {
+  background: none;
+  border: none;
+  color: $primary;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  padding: 0;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: $space-4;
+  color: var(--text-muted);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.input {
+  width: 100%;
+  padding: $space-3 $space-4 $space-3 calc(#{$space-4} + 1.5rem);
+  border: 1.5px solid var(--border-color);
+  border-radius: $radius-xl;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: $font-size-sm;
+  outline: none;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    background: var(--bg-card);
+  }
+
+  &.inputError { border-color: $danger; }
+}
+
+.togglePassword {
+  position: absolute;
+  right: $space-4;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0;
+  @include flex-center;
+  font-size: 1rem;
+  transition: color $transition-fast;
+
+  &:hover { color: $primary; }
+}
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+  cursor: pointer;
+
+  input { accent-color: $primary; }
+}
+
+.error {
+  font-size: $font-size-xs;
+  color: $danger;
+  font-weight: $font-weight-medium;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: $space-4;
+  background: linear-gradient(135deg, $primary, $primary-dark);
+  color: $white;
+  border: none;
+  border-radius: $radius-xl;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  cursor: pointer;
+  transition: all $transition-normal;
+  box-shadow: $shadow-primary;
+  margin-top: $space-2;
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, $primary-dark, $secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.switchAuth {
+  text-align: center;
+  font-size: $font-size-sm;
+  color: var(--text-muted);
+  margin-top: $space-5;
+}
+
+.switchLink {
+  color: $primary;
+  font-weight: $font-weight-bold;
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
+}

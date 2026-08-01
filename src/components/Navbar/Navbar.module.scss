@@ -1,0 +1,257 @@
+/* ============================================================
+   EduMart – Navbar Styles
+   ============================================================ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  background: var(--navbar-bg);
+  border-bottom: 1px solid var(--border-color);
+  transition: all $transition-normal;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+
+  &.scrolled {
+    box-shadow: 0 4px 30px rgba(37, 99, 235, 0.1);
+  }
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $navbar-height;
+  padding: 0 $space-4;
+}
+
+// ── Logo ──────────────────────────────────────────────────────
+.logo {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  text-decoration: none;
+  flex-shrink: 0;
+
+  .logoIcon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, $primary, $secondary);
+    border-radius: $radius-lg;
+    @include flex-center;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+  }
+
+  .logoText {
+    @include heading($font-size-xl, $font-weight-extrabold);
+    line-height: 1;
+
+    .edu { color: $primary; }
+    .mart { color: $accent; }
+  }
+
+  .logoTagline {
+    display: block;
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    font-weight: $font-weight-medium;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+}
+
+// ── Search ───────────────────────────────────────────────────
+.searchWrapper {
+  flex: 1;
+  max-width: 480px;
+  margin: 0 $space-4;
+
+  @include respond-to('lg') {
+    display: none;
+  }
+}
+
+// ── Nav Links ────────────────────────────────────────────────
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include respond-to('lg') {
+    display: none;
+  }
+
+  li a {
+    display: flex;
+    align-items: center;
+    gap: $space-1;
+    padding: $space-2 $space-3;
+    border-radius: $radius-lg;
+    color: var(--text-secondary);
+    font-weight: $font-weight-medium;
+    font-size: $font-size-sm;
+    text-decoration: none;
+    transition: all $transition-fast;
+    white-space: nowrap;
+
+    &:hover, &.active {
+      background: $primary-50;
+      color: $primary;
+    }
+
+    svg { font-size: 1rem; }
+  }
+}
+
+// ── Icon Actions ─────────────────────────────────────────────
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.iconBtn {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: $radius-lg;
+  @include flex-center;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all $transition-fast;
+  font-size: 1.25rem;
+
+  &:hover {
+    background: $primary-50;
+    color: $primary;
+  }
+
+  .badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: $radius-full;
+    font-size: 0.65rem;
+    font-weight: $font-weight-bold;
+    @include flex-center;
+    color: $white;
+    line-height: 1;
+  }
+
+  .cartBadge { background: $primary; }
+  .wishlistBadge { background: $danger; }
+}
+
+.darkToggle {
+  @extend .iconBtn;
+  font-size: 1.1rem;
+}
+
+.loginBtn {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  background: linear-gradient(135deg, $primary, $primary-dark);
+  color: $white !important;
+  border-radius: $radius-full;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-sm;
+  text-decoration: none;
+  transition: all $transition-normal;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+    background: linear-gradient(135deg, $primary-dark, $secondary);
+    color: $white !important;
+  }
+}
+
+// ── Hamburger ────────────────────────────────────────────────
+.hamburger {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: $radius-lg;
+  @include flex-center;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $primary-50;
+    color: $primary;
+  }
+
+  @include respond-to('lg') {
+    display: flex;
+  }
+}
+
+// ── Mobile Menu ───────────────────────────────────────────────
+.mobileMenu {
+  display: none;
+  background: var(--navbar-bg);
+  border-top: 1px solid var(--border-color);
+  padding: $space-4;
+  @include fade-in(0.2s);
+
+  @include respond-to('lg') {
+    display: block;
+  }
+
+  .mobileSearch {
+    margin-bottom: $space-4;
+  }
+
+  .mobileLinks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+
+    li a {
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+      padding: $space-3 $space-4;
+      border-radius: $radius-lg;
+      color: var(--text-secondary);
+      font-weight: $font-weight-medium;
+      text-decoration: none;
+      transition: all $transition-fast;
+
+      &:hover, &.active {
+        background: $primary-50;
+        color: $primary;
+      }
+
+      svg { font-size: 1.1rem; }
+    }
+  }
+
+  .mobileDivider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: $space-3 0;
+  }
+}

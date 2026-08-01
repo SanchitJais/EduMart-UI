@@ -1,0 +1,54 @@
+/* Pagination Styles */
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: $space-6 0;
+  flex-wrap: wrap;
+}
+
+.pageBtn, .navBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-lg;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  @include flex-center;
+  transition: all $transition-fast;
+
+  &:hover:not(:disabled) {
+    border-color: $primary;
+    color: $primary;
+    background: $primary-50;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &.active {
+    background: linear-gradient(135deg, $primary, $primary-dark);
+    color: $white;
+    border-color: $primary;
+    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
+  }
+}
+
+.navBtn {
+  font-size: 1.1rem;
+}
+
+.ellipsis {
+  color: var(--text-muted);
+  font-size: $font-size-sm;
+  padding: 0 $space-1;
+}

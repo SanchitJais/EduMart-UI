@@ -1,0 +1,44 @@
+/* Wishlist Styles */
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  background: var(--bg-secondary);
+  min-height: 100vh;
+  padding: $space-6 0 $space-16;
+  @include fade-in(0.3s);
+}
+
+.header {
+  @include flex-between;
+  margin: $space-4 0 $space-6;
+  flex-wrap: wrap;
+  gap: $space-3;
+}
+
+.title {
+  @include heading($font-size-2xl, $font-weight-bold);
+  margin: 0 0 $space-1;
+}
+
+.count { color: var(--text-muted); font-size: $font-size-sm; margin: 0; }
+
+.clearBtn {
+  background: none;
+  border: 1.5px solid $danger;
+  color: $danger;
+  padding: $space-2 $space-4;
+  border-radius: $radius-full;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover { background: $danger; color: $white; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: $space-5;
+}

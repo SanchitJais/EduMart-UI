@@ -1,0 +1,59 @@
+/* ============================================================
+   EduMart – Breadcrumb Styles
+   ============================================================ */
+
+@use '../../styles/variables' as *;
+
+.breadcrumb {
+  padding: $space-3 0;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.homeIcon {
+  font-size: 0.85rem;
+  margin-right: 4px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  font-size: $font-size-sm;
+  color: $primary;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  transition: color $transition-fast;
+
+  &:hover { color: $primary-dark; }
+}
+
+.separator {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 0 $space-1;
+}
+
+.current {
+  font-size: $font-size-sm;
+  color: var(--text-muted);
+  font-weight: $font-weight-medium;
+  @media (max-width: #{$bp-sm}) {
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

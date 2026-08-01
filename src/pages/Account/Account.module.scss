@@ -1,0 +1,294 @@
+/* Account Styles */
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  background: var(--bg-secondary);
+  min-height: 100vh;
+  padding: $space-6 0 $space-16;
+  @include fade-in(0.3s);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: $space-6;
+  margin-top: $space-4;
+  align-items: start;
+
+  @include respond-to('lg') { grid-template-columns: 1fr; }
+}
+
+// ── Sidebar ───────────────────────────────────────────────────
+.sidebar { @include flex-col; gap: $space-4; position: sticky; top: calc(#{$navbar-height} + 1rem); }
+
+.profileCard {
+  background: linear-gradient(135deg, #0a0f2e, #1a237e);
+  border-radius: $radius-2xl;
+  padding: $space-8 $space-6;
+  text-align: center;
+  color: $white;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  @include flex-center;
+  margin: 0 auto $space-4;
+  font-size: 2rem;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+
+  img { width: 100%; height: 100%; object-fit: cover; }
+}
+
+.userName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  margin: 0 0 $space-1;
+  color: $white;
+}
+
+.userEmail {
+  font-size: $font-size-xs;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 $space-5;
+}
+
+.profileStats {
+  display: flex;
+  justify-content: center;
+  gap: $space-1;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: $radius-xl;
+  padding: $space-3;
+}
+
+.statItem {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  padding: $space-2;
+  border-radius: $radius-lg;
+  transition: background $transition-fast;
+
+  &:hover { background: rgba(255, 255, 255, 0.1); }
+}
+
+.statValue {
+  display: block;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $white;
+}
+
+.statLabel {
+  display: block;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+}
+
+.quickActions {
+  background: var(--bg-card);
+  border-radius: $radius-2xl;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.actionItem {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-4 $space-5;
+  color: var(--text-secondary);
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-color);
+  transition: all $transition-fast;
+  width: 100%;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  cursor: pointer;
+
+  &:last-child { border-bottom: none; }
+
+  &:hover { background: $primary-50; color: $primary; }
+
+  svg { font-size: 1.1rem; }
+}
+
+.logoutAction {
+  color: $danger !important;
+  &:hover { background: rgba(239, 68, 68, 0.05) !important; }
+}
+
+// ── Main Content ──────────────────────────────────────────────
+.mainContent { @include flex-col; gap: $space-5; }
+
+.section {
+  background: var(--bg-card);
+  border-radius: $radius-2xl;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.sectionHeader {
+  @include flex-between;
+  padding: $space-5 $space-6;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+}
+
+.sectionTitle {
+  @include heading($font-size-base, $font-weight-bold);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+
+  svg { color: $primary; }
+}
+
+.editBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  background: $primary;
+  color: $white;
+  border: none;
+  padding: $space-2 $space-4;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover { background: $primary-dark; }
+}
+
+.viewAllLink {
+  font-size: $font-size-sm;
+  color: $primary;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding: $space-5 $space-6;
+  gap: $space-5;
+
+  @include respond-to('md') { grid-template-columns: 1fr; }
+}
+
+.detailItem { @include flex-col; gap: $space-2; }
+
+.detailLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.detailIcon { font-size: 0.9rem; color: $primary; }
+
+.detailValue {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: var(--text-primary);
+}
+
+.detailInput {
+  padding: $space-2 $space-3;
+  border: 1.5px solid $primary;
+  border-radius: $radius-lg;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: $font-size-sm;
+  outline: none;
+  transition: box-shadow $transition-fast;
+
+  &:focus { box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); }
+}
+
+.addressGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4;
+  padding: $space-5 $space-6;
+
+  @include respond-to('sm') { grid-template-columns: 1fr; }
+}
+
+.addressField { @include flex-col; gap: $space-2; }
+
+.addressDisplay {
+  padding: $space-5 $space-6;
+
+  p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: $font-size-sm;
+    margin: 0;
+  }
+}
+
+.noAddress { color: var(--text-muted) !important; font-style: italic; }
+
+.ordersPreview {
+  padding: $space-4 $space-6;
+  @include flex-col;
+  gap: $space-3;
+}
+
+.orderRow {
+  @include flex-between;
+  padding: $space-3 $space-4;
+  background: var(--bg-secondary);
+  border-radius: $radius-lg;
+  border: 1px solid var(--border-color);
+}
+
+.orderId {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: var(--text-primary);
+}
+
+.orderDate {
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+}
+
+.orderStatus {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  padding: 3px $space-3;
+  border-radius: $radius-full;
+
+  &.delivered { background: rgba(16, 185, 129, 0.1); color: $success; }
+  &.processing { background: rgba(245, 158, 11, 0.1); color: $warning; }
+  &.cancelled { background: rgba(239, 68, 68, 0.1); color: $danger; }
+  &.shipped { background: rgba(59, 130, 246, 0.1); color: $primary; }
+}
+
+.orderAmount {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $primary;
+}

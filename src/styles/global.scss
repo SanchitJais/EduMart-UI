@@ -1,0 +1,421 @@
+// ============================================================
+// EduMart – Global Styles
+// ============================================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ── Google Fonts ─────────────────────────────────────────────
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+// ── CSS Custom Properties ─────────────────────────────────────
+:root {
+  --primary: #{$primary};
+  --primary-light: #{$primary-light};
+  --primary-dark: #{$primary-dark};
+  --secondary: #{$secondary};
+  --accent: #{$accent};
+  --success: #{$success};
+  --danger: #{$danger};
+  --white: #{$white};
+  --black: #{$black};
+  --gray-50: #{$gray-50};
+  --gray-100: #{$gray-100};
+  --gray-200: #{$gray-200};
+  --gray-300: #{$gray-300};
+  --gray-400: #{$gray-400};
+  --gray-500: #{$gray-500};
+  --gray-600: #{$gray-600};
+  --gray-700: #{$gray-700};
+  --gray-800: #{$gray-800};
+  --gray-900: #{$gray-900};
+
+  // Component Tokens
+  --bg-primary: #{$white};
+  --bg-secondary: #{$gray-50};
+  --bg-card: #{$white};
+  --text-primary: #{$gray-900};
+  --text-secondary: #{$gray-600};
+  --text-muted: #{$gray-400};
+  --border-color: #{$gray-200};
+  --navbar-bg: #{$white};
+  --shadow-card: #{$shadow-card};
+  --shadow-card-hover: #{$shadow-card-hover};
+  --radius-card: #{$radius-xl};
+}
+
+// ── Dark Mode ─────────────────────────────────────────────────
+[data-theme='dark'] {
+  --bg-primary: #{$dark-bg};
+  --bg-secondary: #{$dark-surface};
+  --bg-card: #{$dark-card};
+  --text-primary: #{$dark-text};
+  --text-secondary: #{$dark-text-muted};
+  --text-muted: #{$gray-500};
+  --border-color: #{$dark-border};
+  --navbar-bg: #{$dark-surface};
+  --shadow-card: 0 2px 15px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+// ── Reset & Base ──────────────────────────────────────────────
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  line-height: 1.6;
+  transition: background-color $transition-normal, color $transition-normal;
+  @include custom-scrollbar;
+}
+
+// ── Typography ────────────────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-heading;
+  color: var(--text-primary);
+  line-height: 1.3;
+  font-weight: $font-weight-bold;
+}
+
+a {
+  text-decoration: none;
+  color: $primary;
+  transition: color $transition-fast;
+  &:hover { color: $primary-dark; }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// ── Bootstrap Overrides ───────────────────────────────────────
+.btn-primary {
+  background: linear-gradient(135deg, $primary, $primary-dark);
+  border: none;
+  border-radius: $radius-full;
+  font-weight: $font-weight-semibold;
+  padding: 0.55rem 1.5rem;
+  transition: all $transition-normal;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+
+  &:hover, &:focus {
+    background: linear-gradient(135deg, $primary-dark, $secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+    border: none;
+  }
+
+  &:active { transform: translateY(0); }
+}
+
+.btn-outline-primary {
+  border-color: $primary;
+  color: $primary;
+  border-radius: $radius-full;
+  font-weight: $font-weight-semibold;
+  transition: all $transition-normal;
+
+  &:hover {
+    background: $primary;
+    color: $white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, $accent, $accent-dark);
+  border: none;
+  color: $white;
+  border-radius: $radius-full;
+  font-weight: $font-weight-semibold;
+  transition: all $transition-normal;
+
+  &:hover {
+    background: linear-gradient(135deg, $accent-dark, $accent);
+    transform: translateY(-2px);
+    color: $white;
+  }
+}
+
+.btn-danger {
+  border-radius: $radius-full;
+  font-weight: $font-weight-semibold;
+}
+
+.btn-success {
+  border-radius: $radius-full;
+  font-weight: $font-weight-semibold;
+}
+
+.btn-sm {
+  padding: 0.35rem 1rem;
+  font-size: $font-size-xs;
+}
+
+.btn-lg {
+  padding: 0.75rem 2rem;
+  font-size: $font-size-lg;
+}
+
+// Card overrides
+.card {
+  border: 1px solid var(--border-color) !important;
+  border-radius: $radius-xl !important;
+  background: var(--bg-card) !important;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow $transition-normal, transform $transition-normal;
+
+  &:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
+// Badge overrides
+.badge {
+  border-radius: $radius-full;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-xs;
+}
+
+// Input overrides
+.form-control, .form-select {
+  border: 1.5px solid var(--border-color);
+  border-radius: $radius-lg;
+  padding: 0.6rem 1rem;
+  font-size: $font-size-sm;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    background: var(--bg-card);
+    color: var(--text-primary);
+  }
+
+  [data-theme='dark'] & {
+    background: $dark-surface;
+    color: $dark-text;
+    border-color: $dark-border;
+  }
+}
+
+// Navbar
+.navbar {
+  background: var(--navbar-bg) !important;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color $transition-normal;
+}
+
+// ── Utility Classes ───────────────────────────────────────────
+.section-title {
+  @include heading($font-size-2xl, $font-weight-bold);
+  position: relative;
+  display: inline-block;
+  margin-bottom: $space-4;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, $primary, $secondary);
+    border-radius: $radius-full;
+  }
+}
+
+.section-title-center {
+  @extend .section-title;
+  &::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.gradient-text {
+  @include gradient-text;
+}
+
+.gradient-bg {
+  @include gradient-primary;
+}
+
+.text-primary-custom { color: $primary !important; }
+.text-accent { color: $accent !important; }
+.text-muted-custom { color: var(--text-muted) !important; }
+
+// Container padding
+.section-padding {
+  padding: $space-16 0;
+}
+
+.section-padding-sm {
+  padding: $space-10 0;
+}
+
+// ── Keyframe Animations ───────────────────────────────────────
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+// Animation classes
+.animate-fade-in { @include fade-in; }
+.animate-slide-up { @include slide-up; }
+.animate-pulse { animation: pulse 2s infinite; }
+
+// ── Scroll to Top Button ──────────────────────────────────────
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, $primary, $primary-dark);
+  color: $white;
+  border: none;
+  border-radius: $radius-full;
+  @include flex-center;
+  cursor: pointer;
+  box-shadow: $shadow-primary;
+  transition: all $transition-normal;
+  z-index: $z-fixed;
+  opacity: 0;
+  visibility: hidden;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+  }
+}
+
+// ── Price Tag Styles ──────────────────────────────────────────
+.price-current {
+  color: $primary;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-lg;
+}
+
+.price-original {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  font-size: $font-size-sm;
+}
+
+.price-discount {
+  color: $success;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-xs;
+}
+
+// ── Star Rating ───────────────────────────────────────────────
+.star-filled { color: #fbbf24; }
+.star-empty { color: $gray-300; }
+
+// ── Page wrapper ─────────────────────────────────────────────
+.page-wrapper {
+  min-height: calc(100vh - #{$navbar-height});
+  background: var(--bg-secondary);
+  padding-top: $space-8;
+  padding-bottom: $space-16;
+  @include fade-in(0.4s);
+}
+
+// ── Breadcrumb ───────────────────────────────────────────────
+.breadcrumb {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  .breadcrumb-item a {
+    color: $primary;
+    font-size: $font-size-sm;
+  }
+
+  .breadcrumb-item.active {
+    color: var(--text-muted);
+    font-size: $font-size-sm;
+  }
+
+  .breadcrumb-item + .breadcrumb-item::before {
+    color: var(--text-muted);
+  }
+}
+
+// ── Toast Container ───────────────────────────────────────────
+.toast-container-custom {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: $z-toast;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  pointer-events: none;
+}
+
+// ── Responsive Utilities ──────────────────────────────────────
+@include respond-to('md') {
+  .section-padding { padding: $space-10 0; }
+  .section-title { font-size: $font-size-xl; }
+}

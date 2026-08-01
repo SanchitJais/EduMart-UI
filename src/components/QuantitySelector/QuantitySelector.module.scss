@@ -1,0 +1,52 @@
+/* ============================================================
+   EduMart – QuantitySelector Styles
+   ============================================================ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.selector {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border-color);
+  border-radius: $radius-full;
+  padding: $space-1;
+}
+
+.btn {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-full;
+  border: none;
+  background: $white;
+  color: $primary;
+  @include flex-center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all $transition-fast;
+  box-shadow: $shadow-sm;
+
+  &:hover:not(:disabled) {
+    background: $primary;
+    color: $white;
+    transform: scale(1.1);
+  }
+
+  &:disabled {
+    color: $gray-300;
+    cursor: not-allowed;
+    box-shadow: none;
+    background: $gray-100;
+  }
+}
+
+.count {
+  min-width: 32px;
+  text-align: center;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+  color: var(--text-primary);
+  user-select: none;
+}
