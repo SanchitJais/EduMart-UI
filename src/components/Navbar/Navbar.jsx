@@ -8,12 +8,13 @@ import { useState, useEffect } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import {
   FiShoppingCart, FiHeart, FiUser, FiMenu, FiX,
-  FiSun, FiMoon, FiLogOut, FiHome, FiGrid
+  FiSun, FiMoon, FiLogOut, FiHome, FiGrid, FiPackage
 } from 'react-icons/fi';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
 import { useUser } from '../../context/UserContext';
 import SearchBar from '../SearchBar/SearchBar';
+import EduMartLogo from '../Logo/EduMartLogo';
 import styles from './Navbar.module.scss';
 
 const Navbar = () => {
@@ -24,7 +25,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
 
-  // Detect scroll for elevated shadow
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -46,14 +46,7 @@ const Navbar = () => {
 
           {/* ── Logo ── */}
           <Link to="/" className={styles.logo} onClick={closeMobile}>
-            <div className={styles.logoIcon}>🎓</div>
-            <div>
-              <div className={styles.logoText}>
-                <span className={styles.edu}>Edu</span>
-                <span className={styles.mart}>Mart</span>
-              </div>
-              <span className={styles.logoTagline}>Learn. Grow. Succeed.</span>
-            </div>
+            <EduMartLogo size={34} showTagline />
           </Link>
 
           {/* ── Search (desktop) ── */}
@@ -182,7 +175,7 @@ const Navbar = () => {
               <NavLink to="/wishlist" onClick={closeMobile} className={({ isActive }) => isActive ? styles.active : ''}>
                 <FiHeart /> Wishlist
                 {wishlistCount > 0 && (
-                  <span className="badge bg-danger ms-auto">{wishlistCount}</span>
+                  <span className={styles.mobileBadge}>{wishlistCount}</span>
                 )}
               </NavLink>
             </li>
@@ -190,7 +183,7 @@ const Navbar = () => {
               <NavLink to="/cart" onClick={closeMobile} className={({ isActive }) => isActive ? styles.active : ''}>
                 <FiShoppingCart /> Cart
                 {cartCount > 0 && (
-                  <span className="badge bg-primary ms-auto">{cartCount}</span>
+                  <span className={styles.mobileBadge}>{cartCount}</span>
                 )}
               </NavLink>
             </li>
@@ -206,20 +199,11 @@ const Navbar = () => {
                 </li>
                 <li>
                   <NavLink to="/orders" onClick={closeMobile}>
-                    🛍️ My Orders
+                    <FiPackage /> My Orders
                   </NavLink>
                 </li>
                 <li>
-                  <button
-                    onClick={handleLogout}
-                    style={{
-                      background: 'none', border: 'none', width: '100%',
-                      display: 'flex', alignItems: 'center', gap: '0.75rem',
-                      padding: '0.75rem 1rem', borderRadius: '0.5rem',
-                      color: 'var(--text-secondary)', cursor: 'pointer',
-                      fontSize: '0.9rem', fontWeight: '500'
-                    }}
-                  >
+                  <button className={styles.mobileLogoutBtn} onClick={handleLogout}>
                     <FiLogOut /> Logout
                   </button>
                 </li>
@@ -233,7 +217,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <NavLink to="/register" onClick={closeMobile}>
-                    ✨ Create Account
+                    <FiGrid /> Create Account
                   </NavLink>
                 </li>
               </>

@@ -4,7 +4,7 @@
 // ============================================================
 
 import { Link } from 'react-router-dom';
-import { FiHeart, FiShoppingCart, FiEye } from 'react-icons/fi';
+import { FiHeart, FiShoppingCart, FiEye, FiCheck } from 'react-icons/fi';
 import { FaHeart } from 'react-icons/fa';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
@@ -25,6 +25,10 @@ const ProductCard = ({ product, view = 'grid' }) => {
   const inCart = isInCart(product.id);
   const inWishlist = isInWishlist(product.id);
   const discount = calcDiscount(product.price, product.discountPrice);
+
+  const handleImgError = (e) => {
+    e.target.src = `https://placehold.co/400x400/eef5ff/2563eb?text=${encodeURIComponent(product.category)}`;
+  };
 
   const handleAddToCart = (e) => {
     e.preventDefault();
@@ -54,6 +58,7 @@ const ProductCard = ({ product, view = 'grid' }) => {
             alt={product.title}
             className={styles.listImage}
             loading="lazy"
+            onError={handleImgError}
           />
           {discount > 0 && (
             <span className={styles.discountBadge}>-{discount}%</span>
@@ -153,6 +158,7 @@ const ProductCard = ({ product, view = 'grid' }) => {
             alt={product.title}
             className={styles.image}
             loading="lazy"
+            onError={handleImgError}
           />
           {discount > 0 && (
             <div className={styles.discountBadge}>-{discount}%</div>
@@ -202,7 +208,7 @@ const ProductCard = ({ product, view = 'grid' }) => {
           id={`add-to-cart-${product.id}`}
         >
           <FiShoppingCart />
-          {inCart ? 'Added to Cart ✓' : 'Add to Cart'}
+          {inCart ? <><FiCheck /> Added to Cart</> : 'Add to Cart'}
         </button>
       </div>
     </div>

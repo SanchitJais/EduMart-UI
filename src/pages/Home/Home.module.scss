@@ -145,7 +145,9 @@
 .promoLeft { max-width: 600px; }
 
 .promoTag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
   background: rgba(255, 255, 255, 0.2);
   color: $white;
   font-size: $font-size-xs;
@@ -191,18 +193,27 @@
   }
 }
 
-.promoEmoji {
-  font-size: 7rem;
-  opacity: 0.9;
-  animation: wiggle 3s ease infinite;
+.promoIllustration {
+  flex-shrink: 0;
 
   @include respond-to('md') { display: none; }
 }
 
-@keyframes wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-8deg); }
-  75% { transform: rotate(8deg); }
+.promoIconGrid {
+  display: flex;
+  gap: $space-3;
+  align-items: center;
+}
+
+.promoIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: $radius-xl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 // ── Why Section ───────────────────────────────────────────────
@@ -237,7 +248,18 @@
   }
 }
 
-.whyEmoji { font-size: 2.5rem; display: block; margin-bottom: $space-3; }
+.whyIconBox {
+  width: 52px;
+  height: 52px;
+  border-radius: $radius-xl;
+  background: linear-gradient(135deg, $primary-50, $primary-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary;
+  margin: 0 auto $space-4;
+  border: 1px solid rgba(37, 99, 235, 0.15);
+}
 
 .whyCardTitle {
   font-size: $font-size-base;
@@ -277,8 +299,21 @@
 }
 
 .stars {
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 2px;
   margin-bottom: $space-3;
+
+  .starFilled {
+    color: #f59e0b;
+    fill: #f59e0b;
+    font-size: 0.9rem;
+  }
+
+  .starEmpty {
+    color: $gray-300;
+    font-size: 0.9rem;
+  }
 }
 
 .testimonialText {
@@ -310,6 +345,59 @@
 }
 
 .authorRole {
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+}
+
+// ── Brands Grid ───────────────────────────────────────────────
+.brandsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-4;
+
+  @include respond-to('md') { grid-template-columns: repeat(3, 1fr); }
+  @include respond-to('sm') { grid-template-columns: repeat(2, 1fr); }
+}
+
+.brandCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: $space-2;
+  padding: $space-5 $space-4;
+  background: var(--brand-bg, #{$primary-50});
+  border: 1.5px solid transparent;
+  border-radius: $radius-xl;
+  text-decoration: none;
+  transition: all $transition-normal;
+
+  &:hover {
+    border-color: var(--brand-color, #{$primary});
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.brandIconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-lg;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $space-1;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.brandName {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: var(--text-primary);
+}
+
+.brandDesc {
   font-size: $font-size-xs;
   color: var(--text-muted);
 }

@@ -3,10 +3,11 @@
 // ============================================================
 
 import { Link } from 'react-router-dom';
-import { FiMail, FiPhone, FiMapPin, FiArrowRight } from 'react-icons/fi';
+import { FiMail, FiPhone, FiMapPin, FiArrowRight, FiShield, FiTruck, FiStar } from 'react-icons/fi';
 import {
   FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaLinkedin
 } from 'react-icons/fa';
+import EduMartLogo from '../Logo/EduMartLogo';
 import styles from './Footer.module.scss';
 
 const QUICK_LINKS = [
@@ -39,7 +40,7 @@ const Footer = () => {
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
     e.target.reset();
-    alert('Thanks for subscribing! 🎉');
+    alert('Thanks for subscribing!');
   };
 
   return (
@@ -55,14 +56,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className={styles.brandCol}>
             <Link to="/" className={styles.logo}>
-              <span className={styles.logoIcon}>🎓</span>
-              <div>
-                <div className={styles.logoText}>
-                  <span className={styles.edu}>Edu</span>
-                  <span className={styles.mart}>Mart</span>
-                </div>
-                <span className={styles.tagline}>Learn. Grow. Succeed.</span>
-              </div>
+              <EduMartLogo size={32} showTagline variant="white" />
             </Link>
 
             <p className={styles.about}>
@@ -143,9 +137,9 @@ const Footer = () => {
               </button>
             </form>
             <div className={styles.badges}>
-              <span className={styles.badge}>🔒 Secure Payments</span>
-              <span className={styles.badge}>🚚 Free Shipping</span>
-              <span className={styles.badge}>⭐ 4.8 Rated</span>
+              <span className={styles.badge}><FiShield size={12} /> Secure Payments</span>
+              <span className={styles.badge}><FiTruck size={12} /> Free Shipping</span>
+              <span className={styles.badge}><FiStar size={12} /> 4.8 Rated</span>
             </div>
           </div>
         </div>
@@ -156,7 +150,7 @@ const Footer = () => {
         <div className="container-xl">
           <div className={styles.bottomInner}>
             <p className={styles.copyright}>
-              © {new Date().getFullYear()} EduMart. All rights reserved. Built with ❤️ for education.
+              © {new Date().getFullYear()} EduMart. All rights reserved. Built with love for education.
             </p>
             <div className={styles.legal}>
               <Link to="#" className={styles.legalLink}>Privacy Policy</Link>

@@ -94,7 +94,7 @@ export const products = [
     rating: 4.7,
     stock: 60,
     images: [
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=400&fit=crop",
     ],
     tags: ["encyclopedia", "science", "kids"],
@@ -198,8 +198,8 @@ export const products = [
     rating: 4.3,
     stock: 95,
     images: [
+      "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=400&fit=crop",
     ],
     tags: ["geometry", "compass", "math tools"],
     isFeatured: false,
@@ -1301,7 +1301,7 @@ export const products = [
     rating: 4.7,
     stock: 55,
     images: [
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400&h=400&fit=crop",
     ],
     tags: ["atlas", "geography", "kids"],

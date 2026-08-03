@@ -203,7 +203,17 @@
   gap: $space-3;
 }
 
-.statIcon { font-size: 1.5rem; }
+.statIconBox {
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-lg;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fbbf24;
+  flex-shrink: 0;
+}
 
 .statValue {
   font-size: $font-size-xl;
@@ -254,9 +264,7 @@
   gap: 4px;
 }
 
-.heroEmoji { font-size: 3rem; }
-.heroLabel { color: $white; font-weight: $font-weight-bold; font-size: $font-size-xl; }
-.heroSub { color: rgba(255, 255, 255, 0.6); font-size: $font-size-xs; }
+
 
 // Floating cards
 .floatingCard {
@@ -270,9 +278,19 @@
   border-radius: $radius-xl;
   padding: $space-3 $space-4;
   color: $white;
-  font-size: 1.5rem;
-  min-width: 150px;
+  min-width: 155px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+
+  .cardIconBox {
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    flex-shrink: 0;
+  }
 
   &[data-pos='top-right'] {
     top: 30px;

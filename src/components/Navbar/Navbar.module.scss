@@ -32,36 +32,11 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: $space-2;
   text-decoration: none;
   flex-shrink: 0;
+  transition: opacity $transition-fast;
 
-  .logoIcon {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, $primary, $secondary);
-    border-radius: $radius-lg;
-    @include flex-center;
-    font-size: 1.3rem;
-    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
-  }
-
-  .logoText {
-    @include heading($font-size-xl, $font-weight-extrabold);
-    line-height: 1;
-
-    .edu { color: $primary; }
-    .mart { color: $accent; }
-  }
-
-  .logoTagline {
-    display: block;
-    font-size: 0.6rem;
-    color: var(--text-muted);
-    font-weight: $font-weight-medium;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
+  &:hover { opacity: 0.88; }
 }
 
 // ── Search ───────────────────────────────────────────────────
@@ -255,3 +230,64 @@
     margin: $space-3 0;
   }
 }
+
+// ── Mobile logout button (replaces inline style) ─────────────
+.mobileLogoutBtn {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  width: 100%;
+  padding: $space-3 $space-4;
+  border-radius: $radius-lg;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all $transition-fast;
+  text-align: left;
+
+  &:hover {
+    background: rgba($danger, 0.08);
+    color: $danger;
+  }
+
+  svg { font-size: 1.1rem; }
+}
+
+// ── Mobile count badge ────────────────────────────────────────
+.mobileBadge {
+  margin-left: auto;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 $space-1;
+  border-radius: $radius-full;
+  background: $primary;
+  color: $white;
+  font-size: 0.7rem;
+  font-weight: $font-weight-bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ── Badge on icon buttons (scope fix) ────────────────────────
+.badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: $radius-full;
+  font-size: 0.65rem;
+  font-weight: $font-weight-bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  line-height: 1;
+}
+.cartBadge { background: $primary; }
+.wishlistBadge { background: $danger; }

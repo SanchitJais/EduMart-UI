@@ -1,0 +1,5 @@
+This directory is used for uploaded product images and user avatars.
+
+Files in this directory are served at /uploads/* by the Express server.
+
+Add to .gitignore if storing user-uploaded files.
