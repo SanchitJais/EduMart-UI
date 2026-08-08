@@ -11,6 +11,7 @@ import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
 import { UserProvider } from './context/UserContext';
 import { ToastProvider } from './context/ToastContext';
+import { OrderProvider } from './context/OrderContext';
 
 // Layout Components
 import Navbar from './components/Navbar/Navbar';
@@ -25,16 +26,18 @@ import Checkout from './pages/Checkout/Checkout';
 import Wishlist from './pages/Wishlist/Wishlist';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import VerifyEmail from './pages/VerifyEmail/VerifyEmail';
 import Account from './pages/Account/Account';
 import Orders from './pages/Orders/Orders';
 import NotFound from './pages/NotFound/NotFound';
 
 // Protected Route
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import VerificationBanner from './components/VerificationBanner/VerificationBanner';
 
 // Global styles
-import './styles/global.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/global.scss';
 
 // ── ScrollToTop: resets scroll position on route change ──────
 const ScrollToTop = () => {
@@ -51,6 +54,7 @@ const AppRoutes = () => {
     <>
       <ScrollToTop />
       <Navbar />
+      <VerificationBanner />
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Home />} />
@@ -60,6 +64,7 @@ const AppRoutes = () => {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/verify-email" element={<VerifyEmail />} />
 
         {/* Protected Routes */}
         <Route
@@ -103,7 +108,9 @@ const App = () => {
         <CartProvider>
           <WishlistProvider>
             <ToastProvider>
-              <AppRoutes />
+              <OrderProvider>
+                <AppRoutes />
+              </OrderProvider>
             </ToastProvider>
           </WishlistProvider>
         </CartProvider>

@@ -41,6 +41,7 @@ const Products = () => {
     const q = searchParams.get('search') || '';
     setFilters((prev) => ({ ...prev, category: cat }));
     setSearch(q);
+    setCurrentPage(1);
   }, [searchParams]);
 
   const handleFilterChange = useCallback((field, value) => {

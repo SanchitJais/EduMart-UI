@@ -1,0 +1,64 @@
+/* VerifyEmail Styles */
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  min-height: 100vh;
+  @include flex-center;
+  background: var(--bg-secondary);
+  padding: $space-8 $space-4;
+  @include fade-in(0.4s);
+}
+
+.card {
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-2xl;
+  box-shadow: $shadow-xl;
+  padding: $space-10 $space-8;
+}
+
+.icon {
+  font-size: 3.5rem;
+  margin-bottom: $space-5;
+
+  &.success { color: $success; }
+  &.error { color: $danger; }
+}
+
+.spin {
+  color: $primary;
+  animation: spin 1s linear infinite;
+}
+
+.title {
+  @include heading($font-size-2xl, $font-weight-extrabold);
+  color: var(--text-primary);
+  margin-bottom: $space-3;
+}
+
+.description {
+  color: var(--text-muted);
+  font-size: $font-size-base;
+  line-height: 1.6;
+  margin-bottom: $space-6;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-3 $space-8;
+  background: linear-gradient(135deg, $primary, $primary-dark);
+  color: $white;
+  border-radius: $radius-full;
+  font-weight: $font-weight-bold;
+  text-decoration: none;
+  transition: all $transition-fast;
+  box-shadow: $shadow-primary;
+
+  &:hover { transform: translateY(-2px); color: $white; }
+}

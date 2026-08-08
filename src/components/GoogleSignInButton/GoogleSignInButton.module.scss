@@ -1,0 +1,35 @@
+@use '../../styles/variables' as *;
+
+.wrapper {
+  margin-top: $space-5;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-5;
+  color: var(--text-muted);
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.5px;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+  }
+}
+
+.googleBtn {
+  display: flex;
+  justify-content: center;
+
+  // The Google-rendered iframe ignores our border-radius/theme tokens,
+  // so just make sure it doesn't overflow the card on narrow screens.
+  :global(iframe) {
+    max-width: 100% !important;
+  }
+}

@@ -1,0 +1,61 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.banner {
+  @include flex-between;
+  gap: $space-4;
+  flex-wrap: wrap;
+  background: rgba(245, 158, 11, 0.1);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+  padding: $space-3 $space-5;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  color: $accent-dark;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+}
+
+.icon {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.resendBtn {
+  background: none;
+  border: 1.5px solid $accent-dark;
+  color: $accent-dark;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  padding: $space-1 $space-3;
+  border-radius: $radius-full;
+  cursor: pointer;
+  transition: all $transition-fast;
+  white-space: nowrap;
+
+  &:hover:not(:disabled) { background: $accent-dark; color: $white; }
+  &:disabled { opacity: 0.6; cursor: not-allowed; }
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: $accent-dark;
+  cursor: pointer;
+  @include flex-center;
+  font-size: 1rem;
+  padding: $space-1;
+  border-radius: $radius-full;
+  transition: background $transition-fast;
+
+  &:hover { background: rgba(245, 158, 11, 0.2); }
+}

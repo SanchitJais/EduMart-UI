@@ -1,11 +1,12 @@
 // ============================================================
 // EduMart – User Context
-// Manages authentication, profile, and dark mode
+// Manages authentication (email/password + Google), profile,
+// email verification, and dark mode
 // ============================================================
 
-import { createContext, useContext, useCallback } from 'react';
+import { createContext, useContext, useCallback, useEffect } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
-import { dummyUsers } from '../data/users';
+import { authApi, ApiError } from '../utils/api';
 
 const UserContext = createContext(null);
 
@@ -14,60 +15,89 @@ const UserContext = createContext(null);
  */
 export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useLocalStorage('edumart_user', null);
+  const [authToken, setAuthToken] = useLocalStorage('edumart_token', null);
   const [darkMode, setDarkMode] = useLocalStorage('edumart_dark', false);
   const [recentlyViewed, setRecentlyViewed] = useLocalStorage('edumart_recent', []);
 
   // Apply dark mode class to document root
-  if (darkMode) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  } else {
-    document.documentElement.removeAttribute('data-theme');
-  }
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }, [darkMode]);
+
+  const applySession = useCallback((token, user) => {
+    setAuthToken(token);
+    setCurrentUser(user);
+  }, [setAuthToken, setCurrentUser]);
 
   /**
-   * Login: validate against dummy users
+   * Login with email + password against the real backend
    * Returns { success, message }
    */
-  const login = useCallback((email, password) => {
-    const user = dummyUsers.find(
-      (u) => u.email === email && u.password === password
-    );
-    if (user) {
-      // Don't store password in context/localStorage
-      const { password: _pw, ...safeUser } = user;
-      setCurrentUser(safeUser);
-      return { success: true, message: 'Welcome back!' };
+  const login = useCallback(async (email, password) => {
+    try {
+      const { token, user, message } = await authApi.login(email, password);
+      applySession(token, user);
+      return { success: true, message: message || 'Welcome back!' };
+    } catch (err) {
+      return { success: false, message: err instanceof ApiError ? err.message : 'Login failed. Please try again.' };
     }
-    return { success: false, message: 'Invalid email or password.' };
-  }, [setCurrentUser]);
+  }, [applySession]);
 
   /**
-   * Register: create a new user entry
+   * One-click sign in/up with a Google ID token — no form, no password
    */
-  const register = useCallback((userData) => {
-    // In a real app this would call an API.
-    // Here we just save the user to context.
-    const { confirmPassword: _cp, ...safeUser } = userData;
-    const newUser = {
-      id: Date.now(),
-      avatar: `https://i.pravatar.cc/150?u=${userData.email}`,
-      address: { street: '', city: '', state: '', pin: '' },
-      ...safeUser,
-    };
-    const { password: _pw, ...userToStore } = newUser;
-    setCurrentUser(userToStore);
-    return { success: true, message: 'Account created successfully!' };
-  }, [setCurrentUser]);
+  const googleLogin = useCallback(async (credential) => {
+    try {
+      const { token, user, message } = await authApi.google(credential);
+      applySession(token, user);
+      return { success: true, message: message || `Welcome, ${user.name}!` };
+    } catch (err) {
+      return { success: false, message: err instanceof ApiError ? err.message : 'Google sign-in failed.' };
+    }
+  }, [applySession]);
+
+  /**
+   * Register a new account via the real backend.
+   * Logs the user in immediately — verification is a reminder, not a gate.
+   */
+  const register = useCallback(async (userData) => {
+    try {
+      const { confirmPassword: _cp, ...payload } = userData;
+      const { token, user, message } = await authApi.register(payload);
+      applySession(token, user);
+      return { success: true, message: message || 'Account created successfully!' };
+    } catch (err) {
+      return { success: false, message: err instanceof ApiError ? err.message : 'Registration failed. Please try again.' };
+    }
+  }, [applySession]);
+
+  /**
+   * Re-send the verification email for the current account
+   */
+  const resendVerification = useCallback(async () => {
+    if (!authToken) return { success: false, message: 'You must be logged in.' };
+    try {
+      const { message } = await authApi.resendVerification(authToken);
+      return { success: true, message: message || 'Verification email sent!' };
+    } catch (err) {
+      return { success: false, message: err instanceof ApiError ? err.message : 'Could not resend the verification email.' };
+    }
+  }, [authToken]);
 
   /**
    * Logout: clear user session
    */
   const logout = useCallback(() => {
     setCurrentUser(null);
-  }, [setCurrentUser]);
+    setAuthToken(null);
+  }, [setCurrentUser, setAuthToken]);
 
   /**
-   * Update user profile fields
+   * Update user profile fields (local only — no PUT /profile endpoint yet)
    */
   const updateProfile = useCallback((updates) => {
     setCurrentUser((prev) => ({ ...prev, ...updates }));
@@ -92,12 +122,15 @@ export const UserProvider = ({ children }) => {
 
   const value = {
     currentUser,
+    authToken,
     darkMode,
     recentlyViewed,
     isLoggedIn: !!currentUser,
     login,
+    googleLogin,
     logout,
     register,
+    resendVerification,
     updateProfile,
     toggleDarkMode,
     addRecentlyViewed,

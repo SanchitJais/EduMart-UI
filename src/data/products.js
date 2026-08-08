@@ -148,7 +148,7 @@ export const products = [
     stock: 120,
     images: [
       "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1612198537901-06ced95ba19b?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1560264418-c4445382edbc?w=400&h=400&fit=crop",
     ],
     tags: ["pen", "ballpoint", "writing"],
     isFeatured: true,
@@ -172,7 +172,7 @@ export const products = [
     rating: 4.4,
     stock: 300,
     images: [
-      "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1560264418-c4445382edbc?w=400&h=400&fit=crop",
     ],
     tags: ["pencil", "dark", "writing"],
@@ -198,7 +198,7 @@ export const products = [
     rating: 4.3,
     stock: 95,
     images: [
-      "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1503789101408-444b37749472?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&h=400&fit=crop",
     ],
     tags: ["geometry", "compass", "math tools"],
@@ -223,7 +223,7 @@ export const products = [
     rating: 4.6,
     stock: 80,
     images: [
-      "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1601311911926-dbdae16e54c9?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=400&fit=crop",
     ],
     tags: ["color pens", "erasable", "art"],
@@ -249,8 +249,8 @@ export const products = [
     rating: 4.2,
     stock: 140,
     images: [
-      "https://images.unsplash.com/photo-1583484963886-cfe2bff2945f?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1612198537901-06ced95ba19b?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1760376208573-49ee415fc66c?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1560264418-c4445382edbc?w=400&h=400&fit=crop",
     ],
     tags: ["tape", "stationery", "craft"],
     isFeatured: false,
@@ -302,7 +302,7 @@ export const products = [
     rating: 4.3,
     stock: 30,
     images: [
-      "https://images.unsplash.com/photo-1473188588951-666fce8e7c68?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1670888664952-efff442ec0d2?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop",
     ],
     tags: ["trolley", "wheeled bag", "school"],
@@ -327,7 +327,7 @@ export const products = [
     rating: 4.6,
     stock: 45,
     images: [
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1594608661623-aa0bd3a69d98?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1473188588951-666fce8e7c68?w=400&h=400&fit=crop",
     ],
     tags: ["kids backpack", "colorful", "primary school"],
@@ -354,7 +354,7 @@ export const products = [
     rating: 4.7,
     stock: 110,
     images: [
-      "https://images.unsplash.com/photo-1589923158776-cb4485d99fd6?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1632142334511-8f24c3d3ae79?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=400&fit=crop",
     ],
     tags: ["tiffin", "steel", "leak-proof"],
@@ -380,7 +380,7 @@ export const products = [
     rating: 4.5,
     stock: 65,
     images: [
-      "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1594955332421-2033cfd867b4?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1589923158776-cb4485d99fd6?w=400&h=400&fit=crop",
     ],
     tags: ["bento", "lunch set", "BPA-free"],
@@ -405,7 +405,7 @@ export const products = [
     rating: 4.4,
     stock: 80,
     images: [
-      "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1726726192151-6d4139ff229d?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1589923158776-cb4485d99fd6?w=400&h=400&fit=crop",
     ],
     tags: ["kids", "animal print", "insulated"],
@@ -458,7 +458,7 @@ export const products = [
     rating: 4.3,
     stock: 180,
     images: [
-      "https://images.unsplash.com/photo-1574684891174-df6b02ab38d7?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1616118132534-381148898bb4?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop",
     ],
     tags: ["sipper", "sports bottle", "BPA-free"],
@@ -483,7 +483,7 @@ export const products = [
     rating: 4.5,
     stock: 40,
     images: [
-      "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1606342384762-ddf691b59885?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1574684891174-df6b02ab38d7?w=400&h=400&fit=crop",
     ],
     tags: ["collapsible", "travel", "foldable"],
@@ -510,7 +510,7 @@ export const products = [
     rating: 4.4,
     stock: 220,
     images: [
-      "https://images.unsplash.com/photo-1529566652340-2c41a1eb6d19?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1669989146656-5d9d38995eba?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1587334274328-64186a80aeee?w=400&h=400&fit=crop",
     ],
     tags: ["healthy snack", "baked", "school"],
@@ -536,7 +536,7 @@ export const products = [
     rating: 4.6,
     stock: 160,
     images: [
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1633360821154-1935fb5671e6?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1587334274328-64186a80aeee?w=400&h=400&fit=crop",
     ],
     tags: ["protein bar", "energy", "healthy"],
@@ -561,8 +561,8 @@ export const products = [
     rating: 4.5,
     stock: 90,
     images: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1529566652340-2c41a1eb6d19?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1605024344839-e6e41aea6b23?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1587334274328-64186a80aeee?w=400&h=400&fit=crop",
     ],
     tags: ["dry fruits", "nuts", "healthy"],
     isFeatured: false,
@@ -586,7 +586,7 @@ export const products = [
     rating: 4.3,
     stock: 200,
     images: [
-      "https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1587334274328-64186a80aeee?w=400&h=400&fit=crop",
     ],
     tags: ["juice", "fruit", "no sugar"],
@@ -611,8 +611,8 @@ export const products = [
     rating: 4.4,
     stock: 175,
     images: [
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1529566652340-2c41a1eb6d19?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1621057621391-7ed446a24b41?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1587334274328-64186a80aeee?w=400&h=400&fit=crop",
     ],
     tags: ["breakfast bar", "multigrain", "healthy"],
     isFeatured: true,
@@ -664,7 +664,7 @@ export const products = [
     rating: 4.7,
     stock: 25,
     images: [
-      "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1738837790798-8f24e172d3b3?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=400&fit=crop",
     ],
     tags: ["AR globe", "geography", "STEM"],
@@ -690,7 +690,7 @@ export const products = [
     rating: 4.6,
     stock: 42,
     images: [
-      "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1601987177651-8edfe6c20009?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=400&h=400&fit=crop",
     ],
     tags: ["logic game", "puzzle", "STEM"],
@@ -715,7 +715,7 @@ export const products = [
     rating: 4.8,
     stock: 20,
     images: [
-      "https://images.unsplash.com/photo-1607944024060-0450380ddd33?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1633828763399-e29f1cd3f4c1?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=400&h=400&fit=crop",
     ],
     tags: ["STEM kit", "physics", "hands-on"],
@@ -740,7 +740,7 @@ export const products = [
     rating: 4.4,
     stock: 55,
     images: [
-      "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1668626781268-8b988c940dc7?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1607944024060-0450380ddd33?w=400&h=400&fit=crop",
     ],
     tags: ["puzzle", "solar system", "3D wooden"],
@@ -793,7 +793,7 @@ export const products = [
     rating: 4.8,
     stock: 40,
     images: [
-      "https://images.unsplash.com/photo-1589945025060-7d3a3caa1c8a?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1591195852468-03a01d1375d6?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&h=400&fit=crop",
     ],
     tags: ["bullet journal", "dotted", "planner"],
@@ -871,7 +871,7 @@ export const products = [
     rating: 4.7,
     stock: 55,
     images: [
-      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1587366802443-f5690cfebc79?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=400&fit=crop",
     ],
     tags: ["watercolor pencils", "art", "coloring"],
@@ -896,7 +896,7 @@ export const products = [
     rating: 4.5,
     stock: 85,
     images: [
-      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1525278070609-779c7adb7b71?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=400&fit=crop",
     ],
     tags: ["sketch pad", "drawing", "paper"],
@@ -923,7 +923,7 @@ export const products = [
     rating: 4.4,
     stock: 100,
     images: [
-      "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1539887523427-bb750641ad29?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop",
     ],
     tags: ["uniform", "shirt", "trousers", "boys"],
@@ -948,7 +948,7 @@ export const products = [
     rating: 4.3,
     stock: 85,
     images: [
-      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1609440082513-44939695dcc7?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=400&h=400&fit=crop",
     ],
     tags: ["uniform", "pinafore", "girls"],
@@ -973,7 +973,7 @@ export const products = [
     rating: 4.6,
     stock: 60,
     images: [
-      "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1548077880-656c402b344e?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop",
     ],
     tags: ["PE kit", "sports", "uniform"],
@@ -1000,7 +1000,7 @@ export const products = [
     rating: 4.8,
     stock: 100,
     images: [
-      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1511288842297-6d0bc2e156c9?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1560264418-c4445382edbc?w=400&h=400&fit=crop",
     ],
     tags: ["crayons", "coloring", "kids art"],
@@ -1025,7 +1025,7 @@ export const products = [
     rating: 4.5,
     stock: 70,
     images: [
-      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1663864796966-8b3402e94ca4?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=400&fit=crop",
     ],
     tags: ["flashcards", "spelling", "learning"],
@@ -1050,7 +1050,7 @@ export const products = [
     rating: 4.9,
     stock: 90,
     images: [
-      "https://images.unsplash.com/photo-1618077360395-f3068be8e001?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1648201637025-1c77b9be3013?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&h=400&fit=crop",
     ],
     tags: ["calculator", "scientific", "exam"],
@@ -1076,7 +1076,7 @@ export const products = [
     rating: 4.7,
     stock: 30,
     images: [
-      "https://images.unsplash.com/photo-1607944024060-0450380ddd33?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1613271752699-ede48a285196?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=400&h=400&fit=crop",
     ],
     tags: ["science kit", "experiments", "STEM"],
@@ -1101,8 +1101,8 @@ export const products = [
     rating: 4.5,
     stock: 110,
     images: [
-      "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1612198537901-06ced95ba19b?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1527597771870-8f1e06ff8d8c?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1560264418-c4445382edbc?w=400&h=400&fit=crop",
     ],
     tags: ["gel pen", "erasable", "colorful"],
     isFeatured: false,
@@ -1126,7 +1126,7 @@ export const products = [
     rating: 4.4,
     stock: 65,
     images: [
-      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1616802099190-5a4485319df6?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=400&fit=crop",
     ],
     tags: ["coloring book", "mindfulness", "mandala"],
@@ -1151,7 +1151,7 @@ export const products = [
     rating: 4.5,
     stock: 95,
     images: [
-      "https://images.unsplash.com/photo-1589923158776-cb4485d99fd6?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1571780752627-1052116323d3?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=400&fit=crop",
     ],
     tags: ["lunch bag", "insulated", "ice pack"],
@@ -1201,7 +1201,7 @@ export const products = [
     rating: 4.6,
     stock: 48,
     images: [
-      "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1730382625230-3756013c515c?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=400&fit=crop",
     ],
     tags: ["blocks", "wood", "building"],
@@ -1226,8 +1226,8 @@ export const products = [
     rating: 4.2,
     stock: 120,
     images: [
-      "https://images.unsplash.com/photo-1583484963886-cfe2bff2945f?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1612198537901-06ced95ba19b?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1523634450041-0d0fbceb4036?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1560264418-c4445382edbc?w=400&h=400&fit=crop",
     ],
     tags: ["laminating", "pouches", "stationery"],
     isFeatured: false,
@@ -1251,7 +1251,7 @@ export const products = [
     rating: 4.5,
     stock: 22,
     images: [
-      "https://images.unsplash.com/photo-1607944024060-0450380ddd33?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1599447291850-9ea36b0a3d66?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=400&fit=crop",
     ],
     tags: ["yoga", "mindfulness", "kids wellness"],
@@ -1276,8 +1276,8 @@ export const products = [
     rating: 4.4,
     stock: 150,
     images: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1529566652340-2c41a1eb6d19?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1657047869556-11105810779a?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1587334274328-64186a80aeee?w=400&h=400&fit=crop",
     ],
     tags: ["protein puffs", "healthy", "snack"],
     isFeatured: false,
@@ -1326,7 +1326,7 @@ export const products = [
     rating: 4.7,
     stock: 28,
     images: [
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1547949003-9792a18a2601?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop",
     ],
     tags: ["laptop bag", "senior students", "anti-theft"],
@@ -1352,7 +1352,7 @@ export const products = [
     rating: 4.5,
     stock: 80,
     images: [
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1668069226492-508742b03147?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop",
     ],
     tags: ["school shoes", "black", "leather", "boys"],
@@ -1400,7 +1400,7 @@ export const products = [
     rating: 4.3,
     stock: 65,
     images: [
-      "https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1619510331283-a46c425e48bb?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop",
     ],
     tags: ["sandals", "girls", "white", "school"],
@@ -1426,7 +1426,7 @@ export const products = [
     rating: 4.6,
     stock: 35,
     images: [
-      "https://images.unsplash.com/photo-1540747913346-19212a4cef1b?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&h=400&fit=crop",
     ],
     tags: ["cricket", "bat", "ball", "sports set"],
@@ -1450,7 +1450,7 @@ export const products = [
     rating: 4.7,
     stock: 50,
     images: [
-      "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1708312604109-16c0be9326cd?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=400&fit=crop",
     ],
     tags: ["badminton", "racket", "shuttle", "indoor"],
@@ -1474,7 +1474,7 @@ export const products = [
     rating: 4.5,
     stock: 70,
     images: [
-      "https://images.unsplash.com/photo-1614632537190-23e4e0e12d68?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&h=400&fit=crop",
     ],
     tags: ["football", "soccer", "outdoor", "sports"],
@@ -1525,7 +1525,7 @@ export const products = [
     stock: 18,
     images: [
       "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1561144257-e32e8506c1a7?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&h=400&fit=crop",
     ],
     tags: ["robotics", "coding", "scratch", "python", "STEM"],
     isFeatured: true,
@@ -1574,7 +1574,7 @@ export const products = [
     rating: 4.7,
     stock: 120,
     images: [
-      "https://images.unsplash.com/photo-1517093728432-a0440f8d45af?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1638813133216-921d8866e095?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1495214783159-3503fd1b572d?w=400&h=400&fit=crop",
     ],
     tags: ["oats", "whole grain", "breakfast", "fiber"],
@@ -1599,7 +1599,7 @@ export const products = [
     rating: 4.5,
     stock: 95,
     images: [
-      "https://images.unsplash.com/photo-1583608354155-ba9e40d7f24f?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1506368197720-c242fdaa44dc?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1470119693884-47d3a1d1f180?w=400&h=400&fit=crop",
     ],
     tags: ["cornflakes", "breakfast", "cereal", "fortified"],
@@ -1627,7 +1627,7 @@ export const products = [
     stock: 85,
     images: [
       "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1574570173583-e9e8e5b2edda?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&h=400&fit=crop",
     ],
     tags: ["almonds", "dry fruits", "protein", "snacks"],
     healthTags: ["high-protein", "no-added-sugar", "gluten-free", "vegan", "organic", "preservative-free"],
@@ -1651,7 +1651,7 @@ export const products = [
     rating: 4.6,
     stock: 60,
     images: [
-      "https://images.unsplash.com/photo-1536591375667-91a6f5399fd2?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1641291361624-38b69b86b1cf?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&h=400&fit=crop",
     ],
     tags: ["mixed nuts", "cashews", "pistachios", "raisins"],
@@ -1678,8 +1678,8 @@ export const products = [
     rating: 4.5,
     stock: 75,
     images: [
-      "https://images.unsplash.com/photo-1590080876352-8a5dc891b2cc?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1559181567-c3190bfa4614?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1622484212850-eb596d769edc?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop",
     ],
     tags: ["protein bar", "chocolate", "post-workout", "snack"],
     healthTags: ["high-protein", "less-sugar", "preservative-free", "gluten-free"],
@@ -1703,7 +1703,7 @@ export const products = [
     rating: 4.6,
     stock: 90,
     images: [
-      "https://images.unsplash.com/photo-1561043433-aaf687c4cf04?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1558021984-46774cdb0e83?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=400&fit=crop",
     ],
     tags: ["energy bar", "oats", "multigrain", "dates"],
@@ -1730,7 +1730,7 @@ export const products = [
     rating: 4.6,
     stock: 70,
     images: [
-      "https://images.unsplash.com/photo-1605522508767-b55c5ec9f2c6?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1693996045300-521e9d08cabc?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400&h=400&fit=crop",
     ],
     tags: ["health drink", "growth", "nutrition", "chocolate"],
@@ -1755,8 +1755,8 @@ export const products = [
     rating: 4.7,
     stock: 85,
     images: [
+      "https://images.unsplash.com/photo-1608651057580-4a50b2fc2281?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1587083982457-e5bb40ab3d67?w=400&h=400&fit=crop",
     ],
     tags: ["bournvita", "chocolate malt", "health drink", "kids"],
     healthTags: ["vegetarian"],
@@ -1782,7 +1782,7 @@ export const products = [
     rating: 4.7,
     stock: 100,
     images: [
-      "https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop",
     ],
     tags: ["organic", "basmati", "rice", "pesticide-free"],
@@ -1807,7 +1807,7 @@ export const products = [
     rating: 4.6,
     stock: 60,
     images: [
-      "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop",
     ],
     tags: ["green tea", "tulsi", "immunity", "organic"],
@@ -1834,7 +1834,7 @@ export const products = [
     rating: 4.8,
     stock: 90,
     images: [
-      "https://images.unsplash.com/photo-1566013656433-e818796d04f7?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1477413114673-6708cad13418?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=400&h=400&fit=crop",
     ],
     tags: ["baby food", "infant cereal", "6 months+", "wheat"],
@@ -1859,7 +1859,7 @@ export const products = [
     rating: 4.7,
     stock: 50,
     images: [
-      "https://images.unsplash.com/photo-1535572290543-960a8046f5af?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1642254964005-c2b1a6871cec?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=400&h=400&fit=crop",
     ],
     tags: ["baby puffs", "organic", "strawberry", "8 months+"],
@@ -1886,7 +1886,7 @@ export const products = [
     rating: 4.4,
     stock: 140,
     images: [
-      "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1613919113640-25732ec5e61f?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=400&h=400&fit=crop",
     ],
     tags: ["chips", "multigrain", "baked", "low fat"],
@@ -1911,8 +1911,8 @@ export const products = [
     rating: 4.8,
     stock: 55,
     images: [
-      "https://images.unsplash.com/photo-1620429693769-f5bb34e8b9d3?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1605209971703-b7df90ae12ed?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1635952346904-95f2ccfcd029?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=400&h=400&fit=crop",
     ],
     tags: ["ladoo", "sesame", "jaggery", "traditional", "tiffin"],
     healthTags: ["no-added-sugar", "vegan", "gluten-free", "preservative-free", "vegetarian"],
@@ -1936,7 +1936,7 @@ export const products = [
     rating: 4.6,
     stock: 100,
     images: [
-      "https://images.unsplash.com/photo-1605522508767-b55c5ec9f2c6?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1734773487516-078839ea277f?w=400&h=400&fit=crop",
       "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=400&fit=crop",
     ],
     tags: ["ragi", "millet", "honey", "healthy snack"],

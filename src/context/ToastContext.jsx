@@ -3,7 +3,7 @@
 // Global notification system
 // ============================================================
 
-import { createContext, useContext, useState, useCallback, lazy, Suspense } from 'react';
+import { createContext, useContext, useState, useCallback, useRef, useEffect, lazy, Suspense } from 'react';
 
 // Lazy-load to avoid circular imports (Toast → useToast → ToastContext)
 const ToastRenderer = lazy(() => import('../components/Toast/Toast'));
@@ -12,6 +12,12 @@ const ToastContext = createContext(null);
 
 export const ToastProvider = ({ children }) => {
   const [toasts, setToasts] = useState([]);
+  const timersRef = useRef(new Set());
+
+  useEffect(() => {
+    const timers = timersRef.current;
+    return () => timers.forEach(clearTimeout);
+  }, []);
 
   /**
    * Add a toast notification
@@ -22,9 +28,11 @@ export const ToastProvider = ({ children }) => {
   const addToast = useCallback((message, type = 'success', duration = 3000) => {
     const id = Date.now() + Math.random();
     setToasts((prev) => [...prev, { id, message, type }]);
-    setTimeout(() => {
+    const timer = setTimeout(() => {
+      timersRef.current.delete(timer);
       setToasts((prev) => prev.filter((t) => t.id !== id));
     }, duration);
+    timersRef.current.add(timer);
   }, []);
 
   const removeToast = useCallback((id) => {

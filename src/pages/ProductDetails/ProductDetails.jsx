@@ -18,6 +18,7 @@ import QuantitySelector from '../../components/QuantitySelector/QuantitySelector
 import ProductCard from '../../components/ProductCard/ProductCard';
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 import EmptyState from '../../components/EmptyState/EmptyState';
+import ProductImage from '../../components/ProductImage/ProductImage';
 import styles from './ProductDetails.module.scss';
 
 const ProductDetails = () => {
@@ -103,9 +104,9 @@ const ProductDetails = () => {
           {/* ── Image Gallery ── */}
           <div className={styles.gallery}>
             <div className={styles.mainImage}>
-              <img
-                src={product.images[selectedImage]}
-                alt={product.title}
+              <ProductImage
+                product={product}
+                index={selectedImage}
                 className={styles.mainImg}
               />
               {discount > 0 && (
@@ -125,7 +126,7 @@ const ProductDetails = () => {
                     onClick={() => setSelectedImage(i)}
                     aria-label={`View image ${i + 1}`}
                   >
-                    <img src={img} alt={`${product.title} view ${i + 1}`} />
+                    <ProductImage src={img} alt={`${product.title} view ${i + 1}`} />
                   </button>
                 ))}
               </div>

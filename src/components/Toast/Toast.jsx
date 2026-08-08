@@ -28,7 +28,7 @@ const Toast = () => {
   if (!toasts.length) return null;
 
   return (
-    <div className={styles.toastContainer} role="alert" aria-live="polite">
+    <div className={styles.toastContainer} role="status" aria-live="polite">
       {toasts.map((toast) => (
         <div
           key={toast.id}

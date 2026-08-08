@@ -11,6 +11,7 @@ import { useWishlist } from '../../context/WishlistContext';
 import { useToast } from '../../context/ToastContext';
 import { calcDiscount, formatCurrency } from '../../utils/currency';
 import Rating from '../Rating/Rating';
+import ProductImage from '../ProductImage/ProductImage';
 import styles from './ProductCard.module.scss';
 
 /**
@@ -25,10 +26,6 @@ const ProductCard = ({ product, view = 'grid' }) => {
   const inCart = isInCart(product.id);
   const inWishlist = isInWishlist(product.id);
   const discount = calcDiscount(product.price, product.discountPrice);
-
-  const handleImgError = (e) => {
-    e.target.src = `https://placehold.co/400x400/eef5ff/2563eb?text=${encodeURIComponent(product.category)}`;
-  };
 
   const handleAddToCart = (e) => {
     e.preventDefault();
@@ -53,12 +50,10 @@ const ProductCard = ({ product, view = 'grid' }) => {
     return (
       <div className={styles.listCard}>
         <Link to={`/products/${product.id}`} className={styles.listImageLink}>
-          <img
-            src={product.images[0]}
-            alt={product.title}
+          <ProductImage
+            product={product}
             className={styles.listImage}
             loading="lazy"
-            onError={handleImgError}
           />
           {discount > 0 && (
             <span className={styles.discountBadge}>-{discount}%</span>
@@ -153,12 +148,10 @@ const ProductCard = ({ product, view = 'grid' }) => {
       {/* Product Image */}
       <Link to={`/products/${product.id}`} className={styles.imageLink}>
         <div className={styles.imageWrapper}>
-          <img
-            src={product.images[0]}
-            alt={product.title}
+          <ProductImage
+            product={product}
             className={styles.image}
             loading="lazy"
-            onError={handleImgError}
           />
           {discount > 0 && (
             <div className={styles.discountBadge}>-{discount}%</div>

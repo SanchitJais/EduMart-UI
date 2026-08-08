@@ -113,7 +113,8 @@
 
   &:last-child { border-bottom: none; }
 
-  &:hover { background: $primary-50; }
+  &:hover,
+  &.highlighted { background: $primary-50; }
 }
 
 .suggestionImg {

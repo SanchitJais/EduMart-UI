@@ -3,6 +3,7 @@
 // ============================================================
 
 const jwt = require('jsonwebtoken');
+const config = require('../config/config');
 const { errorResponse } = require('../utils/responseHelper');
 
 const protect = async (req, res, next) => {
@@ -17,9 +18,9 @@ const protect = async (req, res, next) => {
       return errorResponse(res, 401, 'Not authorized — no token provided');
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'dev_secret');
+    const decoded = jwt.verify(token, config.jwtSecret);
     // TODO: Fetch user from DB: req.user = await User.findById(decoded.id).select('-password');
-    req.user = { id: decoded.id, name: decoded.name, email: decoded.email };
+    req.user = { id: decoded.id, name: decoded.name, email: decoded.email, role: decoded.role };
     next();
   } catch {
     return errorResponse(res, 401, 'Not authorized — invalid token');

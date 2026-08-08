@@ -46,7 +46,7 @@ export const calcShipping = (subtotal) => {
 };
 
 /**
- * Calculate GST (18%)
+ * Calculate GST (9%)
  * @param {number} subtotal
  * @returns {number}
  */

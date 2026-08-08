@@ -94,30 +94,6 @@
   margin-bottom: $space-5;
 }
 
-.demoBox {
-  background: rgba(245, 158, 11, 0.1);
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  border-radius: $radius-lg;
-  padding: $space-3 $space-4;
-  font-size: $font-size-xs;
-  color: $accent-dark;
-  margin-bottom: $space-5;
-  display: flex;
-  align-items: center;
-  gap: $space-2;
-}
-
-.demoBtn {
-  background: none;
-  border: none;
-  color: $primary;
-  font-size: $font-size-xs;
-  font-weight: $font-weight-bold;
-  cursor: pointer;
-  text-decoration: underline;
-  padding: 0;
-}
-
 .form {
   @include flex-col;
   gap: $space-4;

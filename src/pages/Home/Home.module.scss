@@ -218,7 +218,7 @@
 
 // ── Why Section ───────────────────────────────────────────────
 .whySection {
-  background: linear-gradient(135deg, $primary-50, rgba(239, 246, 255, 0.5));
+  background: var(--section-tint-bg);
 }
 
 .whyTitle { margin: 0 auto $space-3 !important; }

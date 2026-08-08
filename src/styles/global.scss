@@ -42,6 +42,7 @@
   --shadow-card: #{$shadow-card};
   --shadow-card-hover: #{$shadow-card-hover};
   --radius-card: #{$radius-xl};
+  --section-tint-bg: linear-gradient(135deg, #{$primary-50}, rgba(239, 246, 255, 0.5));
 }
 
 // ── Dark Mode ─────────────────────────────────────────────────
@@ -56,6 +57,7 @@
   --navbar-bg: #{$dark-surface};
   --shadow-card: 0 2px 15px rgba(0, 0, 0, 0.3);
   --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --section-tint-bg: linear-gradient(135deg, #{$dark-surface}, #{$dark-bg});
 }
 
 // ── Reset & Base ──────────────────────────────────────────────

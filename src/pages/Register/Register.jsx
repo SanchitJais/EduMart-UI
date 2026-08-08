@@ -3,7 +3,7 @@
 // ============================================================
 
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { FiUser, FiMail, FiPhone, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
 import { useUser } from '../../context/UserContext';
 import { useToast } from '../../context/ToastContext';
@@ -11,6 +11,7 @@ import {
   validateName, validateEmail, validatePhone,
   validatePassword, validateConfirmPassword
 } from '../../utils/validation';
+import GoogleSignInButton from '../../components/GoogleSignInButton/GoogleSignInButton';
 import styles from './Register.module.scss';
 
 const Register = () => {
@@ -28,8 +29,7 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
 
   if (isLoggedIn) {
-    navigate('/account', { replace: true });
-    return null;
+    return <Navigate to="/account" replace />;
   }
 
   const handleChange = (e) => {
@@ -38,7 +38,7 @@ const Register = () => {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {
       name: validateName(form.name),
@@ -54,12 +54,23 @@ const Register = () => {
     }
 
     setLoading(true);
-    setTimeout(() => {
-      const result = register(form);
+    const result = await register(form);
+    if (result.success) {
       addToast(result.message, 'success');
       navigate('/account', { replace: true });
-      setLoading(false);
-    }, 700);
+    } else {
+      addToast(result.message, 'error');
+    }
+    setLoading(false);
+  };
+
+  const handleGoogleResult = (result) => {
+    if (result.success) {
+      addToast(result.message, 'success');
+      navigate('/account', { replace: true });
+    } else {
+      addToast(result.message, 'error');
+    }
   };
 
   const FIELDS = [
@@ -157,6 +168,8 @@ const Register = () => {
               {loading ? 'Creating Account...' : 'Create My Account 🎉'}
             </button>
           </form>
+
+          <GoogleSignInButton onResult={handleGoogleResult} />
 
           <p className={styles.switchAuth}>
             Already have an account?{' '}

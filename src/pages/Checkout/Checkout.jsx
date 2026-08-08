@@ -8,6 +8,7 @@ import { FiCheck } from 'react-icons/fi';
 import { useCart } from '../../context/CartContext';
 import { useUser } from '../../context/UserContext';
 import { useToast } from '../../context/ToastContext';
+import { useOrders } from '../../context/OrderContext';
 import { formatCurrency } from '../../utils/currency';
 import {
   validateCheckoutForm, isFormValid
@@ -23,10 +24,17 @@ const INDIAN_STATES = [
   'Uttar Pradesh','Uttarakhand','West Bengal','Delhi','Jammu & Kashmir','Ladakh',
 ];
 
+const PAYMENT_LABELS = {
+  cod: 'Cash on Delivery',
+  upi: 'UPI',
+  card: 'Credit Card',
+};
+
 const Checkout = () => {
   const { cartItems, calculateTotal, clearCart } = useCart();
   const { currentUser } = useUser();
   const { addToast } = useToast();
+  const { placeOrder } = useOrders();
   const navigate = useNavigate();
 
   const [orderPlaced, setOrderPlaced] = useState(false);
@@ -61,7 +69,7 @@ const Checkout = () => {
     }
   };
 
-  const handlePlaceOrder = (e) => {
+  const handlePlaceOrder = async (e) => {
     e.preventDefault();
     const newErrors = validateCheckoutForm(form);
     setErrors(newErrors);
@@ -72,14 +80,29 @@ const Checkout = () => {
     }
 
     setLoading(true);
-    // Simulate order placement
-    setTimeout(() => {
-      const id = `ORD-${Date.now()}`;
-      setOrderId(id);
+    const result = await placeOrder({
+      items: cartItems.map((item) => ({
+        productId: item.id,
+        title: item.title,
+        qty: item.quantity,
+        price: item.discountPrice,
+      })),
+      subtotal,
+      shipping,
+      tax,
+      total,
+      address: { street: form.street, city: form.city, state: form.state, pin: form.pin },
+      paymentMethod: PAYMENT_LABELS[form.paymentMethod],
+    });
+
+    if (result.success) {
+      setOrderId(result.order.id);
       setOrderPlaced(true);
       clearCart();
-      setLoading(false);
-    }, 1500);
+    } else {
+      addToast(result.message, 'error');
+    }
+    setLoading(false);
   };
 
   // ── Success Screen ──────────────────────────────────────────

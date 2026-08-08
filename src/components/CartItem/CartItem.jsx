@@ -9,6 +9,7 @@ import { useCart } from '../../context/CartContext';
 import { useToast } from '../../context/ToastContext';
 import { formatCurrency } from '../../utils/currency';
 import QuantitySelector from '../QuantitySelector/QuantitySelector';
+import ProductImage from '../ProductImage/ProductImage';
 import styles from './CartItem.module.scss';
 
 const CartItem = ({ item }) => {
@@ -24,9 +25,8 @@ const CartItem = ({ item }) => {
     <div className={styles.item}>
       {/* Product Image */}
       <Link to={`/products/${item.id}`} className={styles.imageLink}>
-        <img
-          src={item.images[0]}
-          alt={item.title}
+        <ProductImage
+          product={item}
           className={styles.image}
           loading="lazy"
         />

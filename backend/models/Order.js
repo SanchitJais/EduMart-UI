@@ -1,38 +1,66 @@
-// Order Model — Mongoose Schema (placeholder)
-/*
-const mongoose = require('mongoose');
+// ============================================================
+// Order Model — JSON-file-backed store (see db/jsonStore.js)
+// Swap this file's internals for a real Mongoose/Postgres model
+// later without touching callers — the exported function shapes
+// are the contract.
+//
+// NOTE: totals are trusted as sent by the client (no product
+// catalog or payment gateway lives on this backend yet) — fine
+// for this demo, but re-derive them from a real price source
+// before this ever handles real money.
+// ============================================================
 
-const orderItemSchema = new mongoose.Schema({
-  product:  { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
-  title:    { type: String, required: true },
-  image:    { type: String },
-  price:    { type: Number, required: true },
-  quantity: { type: Number, required: true, min: 1 },
-});
+const { readDb, writeDb } = require('../db/jsonStore');
 
-const orderSchema = new mongoose.Schema({
-  user:             { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  orderId:          { type: String, unique: true },
-  items:            [orderItemSchema],
-  shippingAddress:  {
-    name: String, street: String, city: String, state: String, pincode: String, phone: String,
-  },
-  paymentMethod:    { type: String, enum: ['cod', 'upi', 'card', 'netbanking'] },
-  paymentStatus:    { type: String, enum: ['pending', 'paid', 'failed', 'refunded'], default: 'pending' },
-  orderStatus:      { type: String, enum: ['placed', 'confirmed', 'shipped', 'delivered', 'cancelled'], default: 'placed' },
-  subtotal:         { type: Number, required: true },
-  shippingCharge:   { type: Number, default: 0 },
-  discount:         { type: Number, default: 0 },
-  total:            { type: Number, required: true },
-  estimatedDelivery:{ type: Date },
-  deliveredAt:      { type: Date },
-}, { timestamps: true });
+const findByUserId = (userId) => {
+  const db = readDb();
+  return db.orders
+    .filter((o) => o.userId === userId)
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+};
 
-orderSchema.pre('save', function (next) {
-  if (!this.orderId) this.orderId = `EDU${Date.now()}`;
-  next();
-});
+const findById = (id) => {
+  const db = readDb();
+  return db.orders.find((o) => o.id === id) || null;
+};
 
-module.exports = mongoose.model('Order', orderSchema);
-*/
-module.exports = {};
+const createOrder = ({ userId, items, subtotal, shipping, tax, total, address, paymentMethod }) => {
+  const db = readDb();
+  const order = {
+    id: `ORD-${Date.now()}`,
+    userId,
+    date: new Date().toISOString().slice(0, 10),
+    status: 'Processing',
+    items,
+    subtotal,
+    shipping,
+    tax,
+    total,
+    address,
+    paymentMethod,
+    createdAt: new Date().toISOString(),
+  };
+  db.orders.push(order);
+  writeDb(db);
+  return order;
+};
+
+const updateStatus = (id, status) => {
+  const db = readDb();
+  const index = db.orders.findIndex((o) => o.id === id);
+  if (index === -1) return null;
+  db.orders[index] = { ...db.orders[index], status };
+  writeDb(db);
+  return db.orders[index];
+};
+
+/** Seeds the store once, only if it's empty. Used for local dev demo history. */
+const seedIfEmpty = (seedOrders) => {
+  const db = readDb();
+  if (db.orders.length === 0) {
+    db.orders = seedOrders;
+    writeDb(db);
+  }
+};
+
+module.exports = { findByUserId, findById, createOrder, updateStatus, seedIfEmpty };

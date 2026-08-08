@@ -35,6 +35,15 @@ const config = {
     pass: process.env.SMTP_PASS || '',
   },
 
+  // ── Resend (transactional email — verification links) ─────
+  resend: {
+    apiKey: process.env.RESEND_API_KEY || '',
+    fromEmail: process.env.EMAIL_FROM || 'EduMart <onboarding@resend.dev>',
+  },
+
+  // ── Google Sign-In ─────────────────────────────────────────
+  googleClientId: process.env.GOOGLE_CLIENT_ID || '',
+
   // ── Payment (optional) ────────────────────────────────────
   razorpay: {
     keyId: process.env.RAZORPAY_KEY_ID || '',

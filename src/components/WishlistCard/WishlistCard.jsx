@@ -9,6 +9,7 @@ import { useCart } from '../../context/CartContext';
 import { useToast } from '../../context/ToastContext';
 import { formatCurrency, calcDiscount } from '../../utils/currency';
 import Rating from '../Rating/Rating';
+import ProductImage from '../ProductImage/ProductImage';
 import styles from './WishlistCard.module.scss';
 
 const WishlistCard = ({ product }) => {
@@ -45,9 +46,8 @@ const WishlistCard = ({ product }) => {
       </button>
 
       <Link to={`/products/${product.id}`} className={styles.imageLink}>
-        <img
-          src={product.images[0]}
-          alt={product.title}
+        <ProductImage
+          product={product}
           className={styles.image}
           loading="lazy"
         />

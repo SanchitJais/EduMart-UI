@@ -168,7 +168,7 @@ export const categories = [
     color: "#bc6c25",
     bgColor: "#f6ede4",
     productCount: 45,
-    image: "https://images.unsplash.com/photo-1508061257935-0190bb49e7c4?w=300&h=200&fit=crop&auto=format",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&auto=format",
   },
   {
     id: 16,

@@ -8,6 +8,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const config = require('./config/config');
+const seedDemoData = require('./db/seed');
 
 // Import Routes
 const authRoutes      = require('./routes/auth');
@@ -57,8 +58,16 @@ app.use((req, res) => {
 app.use(errorHandler);
 
 // ── Start Server ─────────────────────────────────────────────
-app.listen(PORT, () => {
-  console.log(`EduMart API running on http://localhost:${PORT} [${config.nodeEnv}]`);
+seedDemoData().then(() => {
+  app.listen(PORT, () => {
+    console.log(`EduMart API running on http://localhost:${PORT} [${config.nodeEnv}]`);
+    if (!config.googleClientId) {
+      console.warn('[config] GOOGLE_CLIENT_ID not set — Google Sign-In will return 501 until configured.');
+    }
+    if (!config.resend.apiKey) {
+      console.warn('[config] RESEND_API_KEY not set — verification emails will be logged to the console instead of sent.');
+    }
+  });
 });
 
 module.exports = app;

@@ -30,7 +30,7 @@ export const CartProvider = ({ children }) => {
             : item
         );
       }
-      return [...prev, { ...product, quantity: qty }];
+      return [...prev, { ...product, quantity: Math.min(qty, product.stock) }];
     });
   }, [setCartItems]);
 

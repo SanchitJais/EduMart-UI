@@ -3,11 +3,12 @@
 // ============================================================
 
 import { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { FiMail, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
 import { useUser } from '../../context/UserContext';
 import { useToast } from '../../context/ToastContext';
 import { validateEmail, validatePassword } from '../../utils/validation';
+import GoogleSignInButton from '../../components/GoogleSignInButton/GoogleSignInButton';
 import styles from './Login.module.scss';
 
 const Login = () => {
@@ -24,8 +25,7 @@ const Login = () => {
 
   // Redirect if already logged in
   if (isLoggedIn) {
-    navigate(from, { replace: true });
-    return null;
+    return <Navigate to={from} replace />;
   }
 
   const handleChange = (e) => {
@@ -34,7 +34,7 @@ const Login = () => {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const emailErr = validateEmail(form.email);
     const passErr = validatePassword(form.password);
@@ -44,21 +44,24 @@ const Login = () => {
     }
 
     setLoading(true);
-    setTimeout(() => {
-      const result = login(form.email, form.password);
-      if (result.success) {
-        addToast(result.message, 'success');
-        navigate(from, { replace: true });
-      } else {
-        addToast(result.message, 'error');
-        setErrors({ password: result.message });
-      }
-      setLoading(false);
-    }, 600);
+    const result = await login(form.email, form.password);
+    if (result.success) {
+      addToast(result.message, 'success');
+      navigate(from, { replace: true });
+    } else {
+      addToast(result.message, 'error');
+      setErrors({ password: result.message });
+    }
+    setLoading(false);
   };
 
-  const fillDemo = () => {
-    setForm({ email: 'priya@example.com', password: 'password123', remember: false });
+  const handleGoogleResult = (result) => {
+    if (result.success) {
+      addToast(result.message, 'success');
+      navigate(from, { replace: true });
+    } else {
+      addToast(result.message, 'error');
+    }
   };
 
   return (
@@ -82,14 +85,6 @@ const Login = () => {
         <div className={styles.rightPanel}>
           <h1 className={styles.formTitle}>Welcome Back! 👋</h1>
           <p className={styles.formSubtitle}>Login to your EduMart account</p>
-
-          {/* Demo credentials */}
-          <div className={styles.demoBox}>
-            <span>🧪 Demo: </span>
-            <button type="button" onClick={fillDemo} className={styles.demoBtn}>
-              Fill test credentials
-            </button>
-          </div>
 
           <form onSubmit={handleSubmit} className={styles.form} noValidate>
             {/* Email */}
@@ -162,6 +157,8 @@ const Login = () => {
               {loading ? 'Logging in...' : 'Login to EduMart'}
             </button>
           </form>
+
+          <GoogleSignInButton onResult={handleGoogleResult} />
 
           <p className={styles.switchAuth}>
             Don't have an account?{' '}

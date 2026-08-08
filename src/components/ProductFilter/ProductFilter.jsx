@@ -5,6 +5,7 @@
 
 import { FiX, FiFilter } from 'react-icons/fi';
 import { categories } from '../../data/categories';
+import CategoryIcon from '../icons/CategoryIcon';
 import styles from './ProductFilter.module.scss';
 
 const SORT_OPTIONS = [
@@ -99,7 +100,8 @@ const ProductFilter = ({ filters, onFilterChange, onReset, mobileOpen, onMobileC
                   checked={filters.category === cat.slug}
                   onChange={(e) => onFilterChange('category', e.target.value)}
                 />
-                <span>{cat.icon} {cat.name}</span>
+                <CategoryIcon name={cat.icon} size={15} color={cat.color} className={styles.categoryIcon} />
+                <span>{cat.name}</span>
               </label>
             ))}
           </div>
