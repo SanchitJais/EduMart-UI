@@ -1,7 +1,4 @@
-// ============================================================
-// Auth Controller — Register, Login, Google Sign-In, Email
-// Verification (Resend), Logout
-// ============================================================
+// Auth routes controller (register, login, google auth, email verification, logout)
 
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
@@ -20,8 +17,7 @@ const signToken = (user) =>
 
 const buildVerifyUrl = (token) => `${config.clientUrl}/verify-email?token=${token}`;
 
-// @desc  Register new user
-// @route POST /api/auth/register
+// Register user
 const register = async (req, res) => {
   try {
     const { name, email, password, phone } = req.body;
@@ -43,7 +39,7 @@ const register = async (req, res) => {
       );
     }
 
-    // Log the user in immediately — verification is a reminder, not a gate.
+    // Log the user in right away
     const token = signToken(user);
     successResponse(res, 201, 'Account created. Check your email to verify your address.', {
       token,
@@ -54,8 +50,7 @@ const register = async (req, res) => {
   }
 };
 
-// @desc  Login user & get token
-// @route POST /api/auth/login
+// Login user
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -70,8 +65,7 @@ const login = async (req, res) => {
   }
 };
 
-// @desc  Sign in (or sign up) with a Google ID token — one click, no form
-// @route POST /api/auth/google
+// Google OAuth login / signup
 const googleAuth = async (req, res) => {
   try {
     if (!config.googleClientId) {
@@ -91,7 +85,7 @@ const googleAuth = async (req, res) => {
         password: null,
         avatar: payload.picture,
         provider: 'google',
-        verified: true, // Google already confirmed ownership of this address
+        verified: true, // Google already verified this email
       });
     } else if (!user.verified) {
       user = User.setVerified(user.id);
@@ -104,8 +98,7 @@ const googleAuth = async (req, res) => {
   }
 };
 
-// @desc  Verify an email address via the link sent by Resend
-// @route GET /api/auth/verify-email?token=...
+// Verify email address from token link
 const verifyEmail = async (req, res) => {
   try {
     const { token } = req.query;
@@ -119,8 +112,7 @@ const verifyEmail = async (req, res) => {
   }
 };
 
-// @desc  Re-send the verification email
-// @route POST /api/auth/resend-verification
+// Resend verification email
 const resendVerification = async (req, res) => {
   try {
     const user = User.findById(req.user.id);
@@ -137,8 +129,7 @@ const resendVerification = async (req, res) => {
   }
 };
 
-// @desc  Get current logged-in user
-// @route GET /api/auth/me
+// Get profile of current user
 const getMe = async (req, res) => {
   try {
     const user = User.findById(req.user.id);
@@ -149,8 +140,7 @@ const getMe = async (req, res) => {
   }
 };
 
-// @desc  Logout user (stateless JWT — client discards the token)
-// @route POST /api/auth/logout
+// Logout user
 const logout = async (_req, res) => {
   successResponse(res, 200, 'Logged out successfully');
 };

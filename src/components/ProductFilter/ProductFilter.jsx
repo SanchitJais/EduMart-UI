@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – ProductFilter Component
-// Sidebar filters: category, price range, rating, sort
-// ============================================================
+// Product filter sidebar component
 
 import { FiX, FiFilter } from 'react-icons/fi';
 import { categories } from '../../data/categories';

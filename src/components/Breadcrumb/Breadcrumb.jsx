@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – Breadcrumb Component
-// ============================================================
+// Breadcrumb navigation component
 
 import { Link } from 'react-router-dom';
 import { FiChevronRight, FiHome } from 'react-icons/fi';

@@ -1,6 +1,4 @@
-// ============================================================
-// Response Helper Utilities
-// ============================================================
+// Helper functions for standard API JSON responses
 
 const successResponse = (res, statusCode = 200, message = 'Success', data = null) => {
   const response = { success: true, message };

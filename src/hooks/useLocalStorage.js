@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – useLocalStorage Custom Hook
-// ============================================================
+// Hook for state synced with localStorage
 
 import { useState, useEffect } from 'react';
 

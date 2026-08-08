@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – Pagination Component
-// ============================================================
+// Pagination component
 
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import styles from './Pagination.module.scss';

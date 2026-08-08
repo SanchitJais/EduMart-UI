@@ -1,8 +1,4 @@
-// ============================================================
-// EduMart – Categories Data
-// icon: slug key for CategoryIcon component (no emojis)
-// image: high-quality Unsplash image for visual display
-// ============================================================
+// Category mock data list
 
 export const categories = [
   {

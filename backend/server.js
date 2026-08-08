@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – Backend Server Entry Point
-// Node.js + Express.js REST API
-// ============================================================
+// Main Express server setup for EduMart backend
 
 const express = require('express');
 const cors = require('cors');
@@ -10,7 +7,7 @@ const morgan = require('morgan');
 const config = require('./config/config');
 const seedDemoData = require('./db/seed');
 
-// Import Routes
+// Routes
 const authRoutes      = require('./routes/auth');
 const productRoutes   = require('./routes/products');
 const categoryRoutes  = require('./routes/categories');
@@ -19,28 +16,28 @@ const cartRoutes      = require('./routes/cart');
 const wishlistRoutes  = require('./routes/wishlist');
 const userRoutes      = require('./routes/users');
 
-// Import Middleware
+// Middlewares
 const errorHandler    = require('./middleware/errorHandler');
 
 const app = express();
 const PORT = config.port;
 
-// ── Global Middleware ─────────────────────────────────────────
+// Base middlewares
 app.use(helmet());
 app.use(cors({ origin: config.clientUrl }));
 app.use(morgan(config.isDev ? 'dev' : 'combined'));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
-// ── Static uploads ───────────────────────────────────────────
+// Serve static uploaded files
 app.use('/uploads', express.static(config.uploadDir));
 
-// ── Health Check ─────────────────────────────────────────────
+// Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'EduMart API is running', timestamp: new Date().toISOString() });
 });
 
-// ── API Routes ───────────────────────────────────────────────
+// API routes
 app.use('/api/auth',       authRoutes);
 app.use('/api/products',   productRoutes);
 app.use('/api/categories', categoryRoutes);
@@ -49,15 +46,15 @@ app.use('/api/cart',       cartRoutes);
 app.use('/api/wishlist',   wishlistRoutes);
 app.use('/api/users',      userRoutes);
 
-// ── 404 Handler ──────────────────────────────────────────────
+// Catch 404 routes
 app.use((req, res) => {
   res.status(404).json({ success: false, message: `Route ${req.originalUrl} not found` });
 });
 
-// ── Global Error Handler ─────────────────────────────────────
+// Error handling middleware
 app.use(errorHandler);
 
-// ── Start Server ─────────────────────────────────────────────
+// Start server after seeding initial data
 seedDemoData().then(() => {
   app.listen(PORT, () => {
     console.log(`EduMart API running on http://localhost:${PORT} [${config.nodeEnv}]`);

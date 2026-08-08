@@ -1,9 +1,4 @@
-// ============================================================
-// EduMart – Order Context
-// Fetches and places orders against the real backend (persisted
-// in backend/data/db.json) — a Resend confirmation email fires
-// server-side whenever an order is placed.
-// ============================================================
+// Order history and checkout context
 
 import { createContext, useContext, useCallback, useEffect, useState } from 'react';
 import { orderApi, ApiError } from '../utils/api';
@@ -11,9 +6,6 @@ import { useUser } from './UserContext';
 
 const OrderContext = createContext(null);
 
-/**
- * OrderProvider wraps the app and provides order history + placement
- */
 export const OrderProvider = ({ children }) => {
   const { authToken } = useUser();
   const [orders, setOrders] = useState([]);

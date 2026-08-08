@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – SearchBar Component
-// Full-featured search with suggestions and keyboard navigation
-// ============================================================
+// Search bar component
 
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';

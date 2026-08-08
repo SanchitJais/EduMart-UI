@@ -1,8 +1,4 @@
-// ============================================================
-// EduMart – Email Verification Landing Page
-// Reached via the link Resend emails out; confirms the token
-// server-side and reflects the result back to the user.
-// ============================================================
+// Email verification landing page
 
 import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';

@@ -1,9 +1,4 @@
-// ============================================================
-// User Model — JSON-file-backed store (see db/jsonStore.js)
-// Swap this file's internals for a real Mongoose/Postgres model
-// later without touching callers — the exported function shapes
-// are the contract.
-// ============================================================
+// User data operations (backed by db/jsonStore.js)
 
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
@@ -70,7 +65,7 @@ const comparePassword = async (user, candidate) => {
   return bcrypt.compare(candidate, user.password);
 };
 
-/** Seeds the store once, only if it's empty. Used for local dev demo accounts. */
+// Seeds default demo accounts if database is empty
 const seedIfEmpty = (seedUsers) => {
   const db = readDb();
   if (db.users.length === 0) {

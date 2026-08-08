@@ -1,8 +1,4 @@
-// ============================================================
-// EduMart – Category Icon Map
-// Maps category slugs to professional SVG icons from react-icons
-// Usage: <CategoryIcon name="books" size={28} color="#4361ee" />
-// ============================================================
+// Category icon component
 
 import {
   FiBook,

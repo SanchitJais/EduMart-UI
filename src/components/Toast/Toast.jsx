@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – Toast Component
-// Displays global toast notifications from ToastContext
-// ============================================================
+// Toast notification component
 
 import { FiCheckCircle, FiAlertCircle, FiAlertTriangle, FiInfo, FiX } from 'react-icons/fi';
 import { useToast } from '../../context/ToastContext';

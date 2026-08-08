@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – CartItem Component
-// Displays a single cart item row with quantity controls
-// ============================================================
+// Cart item component
 
 import { Link } from 'react-router-dom';
 import { FiTrash2 } from 'react-icons/fi';

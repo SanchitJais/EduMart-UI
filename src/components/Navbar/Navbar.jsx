@@ -1,8 +1,4 @@
-// ============================================================
-// EduMart – Navbar Component
-// Responsive sticky navbar with cart/wishlist badges, search,
-// dark mode toggle, and mobile hamburger menu
-// ============================================================
+// Navbar component
 
 import { useState, useEffect } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';

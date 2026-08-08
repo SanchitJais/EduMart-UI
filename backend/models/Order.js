@@ -1,14 +1,4 @@
-// ============================================================
-// Order Model — JSON-file-backed store (see db/jsonStore.js)
-// Swap this file's internals for a real Mongoose/Postgres model
-// later without touching callers — the exported function shapes
-// are the contract.
-//
-// NOTE: totals are trusted as sent by the client (no product
-// catalog or payment gateway lives on this backend yet) — fine
-// for this demo, but re-derive them from a real price source
-// before this ever handles real money.
-// ============================================================
+// Order data operations (backed by db/jsonStore.js)
 
 const { readDb, writeDb } = require('../db/jsonStore');
 
@@ -54,7 +44,7 @@ const updateStatus = (id, status) => {
   return db.orders[index];
 };
 
-/** Seeds the store once, only if it's empty. Used for local dev demo history. */
+// Seed demo order history if empty
 const seedIfEmpty = (seedOrders) => {
   const db = readDb();
   if (db.orders.length === 0) {

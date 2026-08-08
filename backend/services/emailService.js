@@ -1,9 +1,4 @@
-// ============================================================
-// Transactional email via Resend.
-// Without RESEND_API_KEY set, sends are skipped and the link is
-// logged to the console instead — so the verification flow is
-// still fully testable with zero external setup.
-// ============================================================
+// Resend email helper. If RESEND_API_KEY is not configured, logs link to console.
 
 const { Resend } = require('resend');
 const config = require('../config/config');
@@ -34,11 +29,7 @@ const verificationEmailHtml = (name, verifyUrl) => `
   </div>
 `;
 
-/**
- * @param {string} to
- * @param {string} name
- * @param {string} verifyUrl
- */
+// Sends account verification email
 const sendVerificationEmail = async (to, name, verifyUrl) => {
   if (!resend) {
     console.warn(
@@ -114,11 +105,7 @@ const orderConfirmationEmailHtml = (name, order) => {
   `;
 };
 
-/**
- * @param {string} to
- * @param {string} name
- * @param {object} order - { id, items, subtotal, shipping, tax, total, address, paymentMethod }
- */
+// Sends order confirmation email
 const sendOrderConfirmationEmail = async (to, name, order) => {
   if (!resend) {
     console.warn(

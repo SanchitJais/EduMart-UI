@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – Form Validation Utilities
-// ============================================================
+// Form validation helpers
 
 /**
  * Validate a required field

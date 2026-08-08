@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – Wishlist Context
-// Manages wishlist state with localStorage persistence
-// ============================================================
+// Wishlist state and operations context
 
 import { createContext, useContext, useCallback } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';

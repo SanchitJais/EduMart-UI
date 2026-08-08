@@ -1,6 +1,4 @@
-// ============================================================
-// Auth Middleware — JWT Verification
-// ============================================================
+// JWT Auth Middleware
 
 const jwt = require('jsonwebtoken');
 const config = require('../config/config');

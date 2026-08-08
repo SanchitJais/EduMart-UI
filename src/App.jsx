@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – App.jsx
-// Root router and layout with all providers
-// ============================================================
+// Root app component with router and providers
 
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -39,7 +36,7 @@ import VerificationBanner from './components/VerificationBanner/VerificationBann
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/global.scss';
 
-// ── ScrollToTop: resets scroll position on route change ──────
+// Resets scroll position on route change
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -48,7 +45,7 @@ const ScrollToTop = () => {
   return null;
 };
 
-// ── AppRoutes: actual page routes ────────────────────────────
+// Main application routes
 const AppRoutes = () => {
   return (
     <>
@@ -100,7 +97,7 @@ const AppRoutes = () => {
   );
 };
 
-// ── App: wraps everything in providers ────────────────────────
+// Root provider wrapper
 const App = () => {
   return (
     <BrowserRouter>

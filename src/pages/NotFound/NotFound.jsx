@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – 404 Not Found Page
-// ============================================================
+// 404 page
 
 import { Link } from 'react-router-dom';
 import { FiHome, FiSearch } from 'react-icons/fi';

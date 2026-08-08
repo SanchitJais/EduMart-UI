@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – EmptyState Component
-// Shows a friendly empty state with illustration and CTA
-// ============================================================
+// Empty state placeholder component
 
 import { Link } from 'react-router-dom';
 import styles from './EmptyState.module.scss';

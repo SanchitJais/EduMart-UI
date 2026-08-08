@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – Products Dummy Data (50+ products)
-// ============================================================
+// Products catalog data list
 
 export const products = [
   // ──────────── BOOKS ────────────

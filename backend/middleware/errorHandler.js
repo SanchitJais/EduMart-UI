@@ -1,6 +1,4 @@
-// ============================================================
-// Global Error Handler Middleware
-// ============================================================
+// Global error handler middleware
 
 const errorHandler = (err, req, res, _next) => {
   let statusCode = err.statusCode || 500;

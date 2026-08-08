@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – Rating Component
-// Renders star rating with optional count and label
-// ============================================================
+// Star rating component
 
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import styles from './Rating.module.scss';

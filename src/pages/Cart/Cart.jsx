@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – Cart Page
-// ============================================================
+// Cart page
 
 import { Link } from 'react-router-dom';
 import { FiShoppingBag, FiArrowRight, FiTrash2 } from 'react-icons/fi';

@@ -1,17 +1,11 @@
-// ============================================================
-// Google Sign-In — verifies the ID token Google's client-side
-// library hands the frontend, so we trust its payload server-side.
-// ============================================================
+// Google Auth helper - verifies token sent from frontend client
 
 const { OAuth2Client } = require('google-auth-library');
 const config = require('../config/config');
 
 const client = new OAuth2Client(config.googleClientId);
 
-/**
- * @param {string} idToken - the credential returned by Google Identity Services
- * @returns {Promise<{email: string, name: string, picture: string, email_verified: boolean}>}
- */
+// Verify Google ID token and return user profile payload
 const verifyGoogleToken = async (idToken) => {
   const ticket = await client.verifyIdToken({
     idToken,

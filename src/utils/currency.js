@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – Currency Utilities
-// ============================================================
+// Currency formatting and calculation helpers
 
 /**
  * Format a number as Indian Rupees (₹)

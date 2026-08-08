@@ -1,13 +1,10 @@
-// ============================================================
-// Order Controller — Place, Track, Cancel Orders
-// ============================================================
+// Order controller (fetch orders, place order, cancel order)
 
 const { successResponse, errorResponse } = require('../utils/responseHelper');
 const Order = require('../models/Order');
 const { sendOrderConfirmationEmail } = require('../services/emailService');
 
-// @desc  Get all orders for the logged-in user, newest first
-// @route GET /api/orders
+// Get user orders
 const getOrders = async (req, res) => {
   try {
     successResponse(res, 200, 'Orders fetched', Order.findByUserId(req.user.id));
@@ -16,8 +13,7 @@ const getOrders = async (req, res) => {
   }
 };
 
-// @desc  Get a single order (only if it belongs to the caller)
-// @route GET /api/orders/:id
+// Get single order by ID
 const getOrderById = async (req, res) => {
   try {
     const order = Order.findById(req.params.id);
@@ -30,8 +26,7 @@ const getOrderById = async (req, res) => {
   }
 };
 
-// @desc  Place a new order and email a confirmation
-// @route POST /api/orders
+// Place new order
 const placeOrder = async (req, res) => {
   try {
     const { items, subtotal, shipping, tax, total, address, paymentMethod } = req.body;
@@ -64,8 +59,7 @@ const placeOrder = async (req, res) => {
   }
 };
 
-// @desc  Cancel an order (only if it belongs to the caller)
-// @route PUT /api/orders/:id/cancel
+// Cancel an existing order
 const cancelOrder = async (req, res) => {
   try {
     const order = Order.findById(req.params.id);

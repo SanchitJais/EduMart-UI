@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – Toast Context
-// Global notification system
-// ============================================================
+// Global toast notifications context
 
 import { createContext, useContext, useState, useCallback, useRef, useEffect, lazy, Suspense } from 'react';
 

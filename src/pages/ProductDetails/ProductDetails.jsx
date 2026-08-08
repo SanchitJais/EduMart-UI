@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – Product Details Page
-// ============================================================
+// Product detail page
 
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';

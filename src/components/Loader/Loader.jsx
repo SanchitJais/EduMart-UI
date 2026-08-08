@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – Loader (Skeleton) Component
-// Shows skeleton placeholders while content is loading
-// ============================================================
+// Loading spinner component
 
 import styles from './Loader.module.scss';
 

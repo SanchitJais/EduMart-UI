@@ -1,18 +1,11 @@
-// ============================================================
-// EduMart – Cart Context
-// Manages cart state with full CRUD and localStorage persistence
-// ============================================================
+// Cart state and calculation context
 
 import { createContext, useContext, useCallback } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { calcSubtotal, calcShipping, calcTax } from '../utils/currency';
 
-// Create the context
 const CartContext = createContext(null);
 
-/**
- * CartProvider wraps the app and provides cart state + actions
- */
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useLocalStorage('edumart_cart', []);
 

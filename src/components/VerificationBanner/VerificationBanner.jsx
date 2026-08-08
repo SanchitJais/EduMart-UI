@@ -1,8 +1,4 @@
-// ============================================================
-// EduMart – VerificationBanner
-// Non-blocking reminder for unverified accounts — login stays
-// seamless either way, this just nudges toward finishing setup.
-// ============================================================
+// Account verification reminder banner
 
 import { useState } from 'react';
 import { FiMail, FiX } from 'react-icons/fi';

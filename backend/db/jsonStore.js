@@ -1,8 +1,4 @@
-// ============================================================
-// Minimal JSON-file-backed data store
-// No external DB service required — swap for MongoDB/Postgres
-// later by reimplementing the functions in models/User.js.
-// ============================================================
+// JSON database file helper for local persistence
 
 const fs = require('fs');
 const path = require('path');

@@ -1,8 +1,4 @@
-// ============================================================
-// Seeds the local JSON store with the existing demo accounts and
-// their order history so nothing else in the app breaks. Each
-// collection seeds independently and only if it's still empty.
-// ============================================================
+// Seeds initial demo accounts and orders into local storage if empty
 
 const bcrypt = require('bcryptjs');
 const { readDb, writeDb } = require('./jsonStore');

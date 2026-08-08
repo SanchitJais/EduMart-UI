@@ -1,11 +1,4 @@
-// ============================================================
-// EduMart – Brand Logo Component
-// Inline SVG: graduation cap + open book, blue + orange palette
-// Props:
-//   size       – number (default 36) — controls height in px
-//   showTagline – bool (default false)
-//   variant    – 'default' | 'white' (for dark backgrounds)
-// ============================================================
+// EduMart logo component
 
 const EduMartLogo = ({ size = 36, showTagline = false, variant = 'default' }) => {
   const isWhite = variant === 'white';

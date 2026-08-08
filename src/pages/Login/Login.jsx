@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – Login Page
-// ============================================================
+// Login page
 
 import { useState } from 'react';
 import { Link, Navigate, useNavigate, useLocation } from 'react-router-dom';

@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – Wishlist Page
-// ============================================================
+// Wishlist page
 
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 import WishlistCard from '../../components/WishlistCard/WishlistCard';

@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – Backend API Client
-// Thin fetch wrapper for the auth endpoints in backend/routes/auth.js
-// ============================================================
+// API helper for backend endpoints
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 

@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – WishlistCard Component
-// ============================================================
+// Wishlist card component
 
 import { Link } from 'react-router-dom';
 import { FiTrash2, FiShoppingCart } from 'react-icons/fi';

@@ -1,9 +1,4 @@
-// ============================================================
-// EduMart – GoogleSignInButton
-// One-click Google sign-in/sign-up, shared by Login & Register.
-// Renders Google's own button + enables One Tap for returning
-// visitors — the "seamless" login path (no form, no password).
-// ============================================================
+// Google sign in button component
 
 import { GoogleLogin } from '@react-oauth/google';
 import { useUser } from '../../context/UserContext';

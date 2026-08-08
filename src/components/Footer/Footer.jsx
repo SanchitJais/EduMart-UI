@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – Footer Component
-// ============================================================
+// Footer component
 
 import { Link } from 'react-router-dom';
 import { FiMail, FiPhone, FiMapPin, FiArrowRight, FiShield, FiTruck, FiStar } from 'react-icons/fi';

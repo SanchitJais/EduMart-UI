@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – Products Page
-// Full-featured product listing with filters, sorting, pagination
-// ============================================================
+// Products listing page
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';

@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – ReviewCard Component
-// ============================================================
+// Review card component
 
 import { FiUser } from 'react-icons/fi';
 import Rating from '../Rating/Rating';

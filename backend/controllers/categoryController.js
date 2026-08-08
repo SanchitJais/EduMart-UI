@@ -1,6 +1,4 @@
-// ============================================================
-// Category Controller
-// ============================================================
+// Category controller
 
 const { successResponse, errorResponse } = require('../utils/responseHelper');
 

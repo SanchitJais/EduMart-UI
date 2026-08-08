@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – ProductCard Component
-// Displays product in grid/list view with add-to-cart and wishlist
-// ============================================================
+// Product card component
 
 import { Link } from 'react-router-dom';
 import { FiHeart, FiShoppingCart, FiEye, FiCheck } from 'react-icons/fi';

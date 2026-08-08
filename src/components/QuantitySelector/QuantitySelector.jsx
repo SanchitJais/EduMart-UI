@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – QuantitySelector Component
-// ============================================================
+// Quantity selector component
 
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import styles from './QuantitySelector.module.scss';

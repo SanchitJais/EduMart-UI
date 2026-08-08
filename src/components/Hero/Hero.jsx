@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – Hero Component
-// Animated banner for the home page
-// ============================================================
+// Home hero banner component
 
 import { Link } from 'react-router-dom';
 import {

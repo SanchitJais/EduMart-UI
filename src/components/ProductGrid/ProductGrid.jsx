@@ -1,7 +1,4 @@
-// ============================================================
-// EduMart – ProductGrid Component
-// Renders a responsive grid or list of ProductCards
-// ============================================================
+// Product grid component
 
 import ProductCard from '../ProductCard/ProductCard';
 import Loader from '../Loader/Loader';

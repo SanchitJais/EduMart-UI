@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – Orders Page
-// ============================================================
+// Order history page
 
 import { Link } from 'react-router-dom';
 import { FiDownload, FiPackage } from 'react-icons/fi';

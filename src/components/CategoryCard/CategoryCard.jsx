@@ -1,6 +1,4 @@
-// ============================================================
-// EduMart – CategoryCard Component
-// ============================================================
+// Category card component
 
 import { Link } from 'react-router-dom';
 import CategoryIcon from '../icons/CategoryIcon';

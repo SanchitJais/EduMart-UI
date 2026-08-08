@@ -1,8 +1,4 @@
-// ============================================================
-// EduMart – User Context
-// Manages authentication (email/password + Google), profile,
-// email verification, and dark mode
-// ============================================================
+// User authentication and settings context
 
 import { createContext, useContext, useCallback, useEffect } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -10,9 +6,6 @@ import { authApi, ApiError } from '../utils/api';
 
 const UserContext = createContext(null);
 
-/**
- * UserProvider wraps the app and provides user state + auth actions
- */
 export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useLocalStorage('edumart_user', null);
   const [authToken, setAuthToken] = useLocalStorage('edumart_token', null);
